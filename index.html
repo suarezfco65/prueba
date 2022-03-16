@@ -299,7 +299,9 @@ const cys = {
         option.innerHTML = lista[i];
         obj.appendChild(option);
       }
+      obj.selectedIndex=0;
    }
+   cambioRegion(document.getElementById('region'));
    function cambioRegion(obj)   {
        const region = cys.regiones[obj.options[obj.selectedIndex].value];
        let plantas = [];
