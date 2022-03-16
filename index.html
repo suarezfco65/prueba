@@ -166,7 +166,7 @@ const cys = {
     
     <div class="mb-3 mt-3">
     <label for="region" class="form-label">Región:</label>
-    <select class="form-select" id="region" name="region">
+    <select class="form-select" id="region" name="region" onchange="cambioRegion(this)">
     </select>
     </div>
     
@@ -231,6 +231,17 @@ Reportado por: Jestmar Torres
   for (var i = 0; i < cys.regiones.length; i++) regiones.push(cys.regiones[i].nombre+' ('+cys.regiones[i].gerente+')');
   cargarSelect(document.getElementById('region'), regiones);                                                       
   function cargarSelect (obj, lista)  {
-     for(var i=0;i<lista.length;i++)  obj.options[i] = new option(lista[i]);
-  }
+      for (var i = 0; i < lista.length; i++)    {
+        var option = document.createElement("option");
+        option.value = i;
+        option.innerHTML = lista[i];
+        obj.appendChild(option);
+      }
+   }
+   function cambioRegion(obj)   {
+       const region = cys.regiones[obj.options[obj.selectedIndex].value];
+       let plantas = [];
+       for (var i = 0; i < region.plantas.length; i++) plantas.push(region.plantas[i].nombre+' ('+region.plantas[i].responsable+')');
+       cargarSelect(document.getElementById('planta'), plantas);                                                       
+   }
 </script>
