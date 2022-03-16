@@ -175,51 +175,112 @@ const cys = {
     <select class="form-select" id="planta" name="planta">
     </select>
     </div>
-    
+
+    <script>
+        function cambioColor(obj)  {
+            let oTA = document.getElementById('ta-'+obj.name);
+            if (obj.value == "verde")   oTA.setAttribute("style","display:none")
+            else    oTA.setAttribute("style","display:block");
+        }
+    </script>
+
+    <table>
+        <tbody>
+          <tr>
+            <td>Aplicación SCLi-SAP</td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-success" name="scli-zap" value="verde"    onchange="cambioColor(this)"></td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-warning" name="scli-zap" value="amarillo" onchange="cambioColor(this)"></td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-danger"  name="scli-zap" value="rojo"     onchange="cambioColor(this)"></td>
+          </tr>
+          <tr>
+             <td colspan="4" align="right" id="ta-scli-zap" style="display:none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea name="ta-scli-zap" rows="3"></textarea></td>
+          </tr>
+          <tr>
+            <th>Plataforma Servidores</th>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plataforma Virtualizada:</td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-success" name="pla-vir" value="verde"    onchange="cambioColor(this)"></td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-warning" name="pla-vir" value="amarillo" onchange="cambioColor(this)"></td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-danger"  name="pla-vir" value="rojo"     onchange="cambioColor(this)"></td>
+          </tr>
+          <tr>
+             <td colspan="4" align="right" id="ta-pla-vir" style="display:none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea name="ta-pla-vir" rows="3"></textarea></td>
+          </tr>
+          <tr>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Servidor A:</td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-success" name="serv-a" value="verde"    onchange="cambioColor(this)"></td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-warning" name="serv-a" value="amarillo" onchange="cambioColor(this)"></td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-danger"  name="serv-a" value="rojo"     onchange="cambioColor(this)"></td>
+          </tr>
+          <tr>
+             <td colspan="4" align="right" id="ta-serv-a" style="display:none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea name="ta-serv-a" rows="3"></textarea></td>
+          </tr>
+          <tr>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Servidor B:</td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-success" name="serv-b" value="verde"    onchange="cambioColor(this)"></td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-warning" name="serv-b" value="amarillo" onchange="cambioColor(this)"></td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-danger"  name="serv-b" value="rojo"     onchange="cambioColor(this)"></td>
+          </tr>
+          <tr>
+             <td colspan="4" align="right" id="ta-serv-b" style="display:none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea name="ta-serv-b" rows="3"></textarea></td>
+          </tr>
+          <tr>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Servidor C:</td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-success" name="serv-c" value="verde"    onchange="cambioColor(this)"></td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-warning" name="serv-c" value="amarillo" onchange="cambioColor(this)"></td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-danger"  name="serv-c" value="rojo"     onchange="cambioColor(this)"></td>
+          </tr>
+          <tr>
+             <td colspan="4" align="right" id="ta-serv-c" style="display:none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea name="ta-serv-c" rows="3"></textarea></td>
+          </tr>
+          <tr>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Servidor D:</td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-success" name="serv-d" value="verde"    onchange="cambioColor(this)"></td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-warning" name="serv-d" value="amarillo" onchange="cambioColor(this)"></td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-danger"  name="serv-d" value="rojo"     onchange="cambioColor(this)"></td>
+          </tr>
+          <tr>
+             <td colspan="4" align="right" id="ta-serv-d" style="display:none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea name="ta-serv-d" rows="3"></textarea></td>
+          </tr>
+          <tr>
+            <td>Plataforma Impresión</td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-success" name="pla-imp" value="verde"    onchange="cambioColor(this)"></td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-warning" name="pla-imp" value="amarillo" onchange="cambioColor(this)"></td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-danger"  name="pla-imp" value="rojo"     onchange="cambioColor(this)"></td>
+          </tr>
+          <tr>
+             <td colspan="4" align="right" id="ta-pla-imp" style="display:none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea name="ta-pla-imp" rows="3"></textarea></td>
+          </tr>
+          <tr>
+            <td>Comunicaciones</td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-success" name="pla-com" value="verde"    onchange="cambioColor(this)"></td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-warning" name="pla-com" value="amarillo" onchange="cambioColor(this)"></td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-danger"  name="pla-com" value="rojo"     onchange="cambioColor(this)"></td>
+          </tr>
+          <tr>
+             <td colspan="4" align="right" id="ta-pla-com" style="display:none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea name="ta-pla-com" rows="3"></textarea></td>
+          </tr>
+          <tr>
+            <td>Servicios Auxiliares</td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-success" name="ser-aux" value="verde"    onchange="cambioColor(this)"></td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-warning" name="ser-aux" value="amarillo" onchange="cambioColor(this)"></td>
+            <td>&nbsp;<input type="radio" class="form-check-input bg-danger"  name="ser-aux" value="rojo"     onchange="cambioColor(this)"></td>
+          </tr>
+          <tr>
+             <td colspan="4" align="right" id="ta-ser-aux" style="display:none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea name="ta-ser-aux" rows="3"></textarea></td>
+          </tr>
+          </tr>
+        </tbody>
+    </table>   
+
     <div class="mb-3 mt-3">
-      <label for="email" class="form-label">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-    </div>
-    <div class="mb-3">
-      <label for="pwd" class="form-label">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
-    </div>
-    <div class="form-check mb-3">
-      <label class="form-check-label">
-        <input class="form-check-input" type="checkbox" name="remember"> Remember me
-      </label>
+      <label for="reportado" class="form-label">Reportado por:</label>
+      <input type="text" class="form-control" id="reportado" name="reportado">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-<!--  
-REPORTE DIARIO NACIONAL DEL ESTADO DE LA PLATAFORMA TECNOLÓGICA (AIT) EN LAS 17 PDD
-FECHA: 14/03/2022
-HORA: 08:30 a.m.
-
-Buenos Días Sres, a continuación el reporte referido. 
-
-
-REGIÓN OCCIDENTE (Gte. Regional: ALEXANDER PIRELA): 🟡
-
-2. P/D SAN LORENZO (RESP: CESAR HERNÁNDEZ): ✅ 
-- Aplicación SCLi-SAP: ✅
-- Plataforma de Servidores: ✅
-     Plataforma Virtualizada (Si/No): Si
-     Servidor A:✅
-     Servidor B:✅
-     Servidor C:✅
-     Servidor D:✅
-- Plataforma Impresión: ✅
-- Comunicaciones: ✅
-- Servicios Auxiliares:  🟡 Se posee  (UPS) con las baterías averiadas en todos los equipos instalados.       
-TER: Tiempo indefinido,  En espera de procura de equipos.
- - Observación : Cabe destacar que el equipo de AIT DSLT no cuenta con vehículo desde hace tiempo, por lo cual para atender los requerimientos e incidentes que se presentan en sitio se solicita  el   apoyo del usuario involucrado para el traslado lo que se traduce en un impacto  en el tiempo de solución.
-Observaciones: 
-Reportado por: Jestmar Torres
--->
-  
-  
-  
   
 </div>
 
@@ -231,6 +292,7 @@ Reportado por: Jestmar Torres
   for (var i = 0; i < cys.regiones.length; i++) regiones.push(cys.regiones[i].nombre+' ('+cys.regiones[i].gerente+')');
   cargarSelect(document.getElementById('region'), regiones);                                                       
   function cargarSelect (obj, lista)  {
+      obj.innerHTML = "";
       for (var i = 0; i < lista.length; i++)    {
         var option = document.createElement("option");
         option.value = i;
