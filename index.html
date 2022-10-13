@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 const cys = { 
     regiones : [  { nombre: 'CENTRO-OCCIDENTE',
@@ -308,13 +309,72 @@ const cys = {
        for (var i = 0; i < region.plantas.length; i++) plantas.push(region.plantas[i].nombre+' ('+region.plantas[i].responsable+')');
        cargarSelect(document.getElementById('planta'), plantas);                                                       
    }
+  function determinar(rv) {
+    if (rv == 'verde')  {
+      return 'Funcionando';
+    } else if (rv == 'amarillo')  {
+      return 'Con fallas';
+    } else if (rv == 'rojo')  {
+      return 'No funciona';
+    } else {
+      return 'No aplica';
+    }
+  }
   function enviarPorWS(oForm)  {
     let msg ='';
-    let elementos = oForm.children;
-    for (var i=0; i<elementos.length; i++) {
-      console.log(elementos[i]);
-//      console.log(elementos[i].name+': '+elementos[i].value);
-    };
+    msg += '*Rep Diario Plataforma Tecn*\n';
+    msg += '('+$('#fecha').val()+' '+$('#hora').val()+')\n';
+    msg += 'Región: _'+$('#region').val()+'\n';
+    msg += 'Planta: _'+$('#planta').val()+'\n';
+    let radioValor = $('input:radio[name=sclip-zap]:checked').val();
+    msg += 'Aplicación SCLi-SAP: _'+determinar(radioValor)+'_n';
+    if (radioValor == 'amarillo' || radioValor == 'rojo') msg += '```'+$('#ta-sclip-zap').val()+'```\n';
+    msg += '*Plataforma Servidores*\n';
+    let radioValor = $('input:radio[name=pla-vir]:checked').val();
+    msg += 'Plataforma Virtualizada: _'+determinar(radioValor)+'_n';
+    if (radioValor == 'amarillo' || radioValor == 'rojo') msg += '```'+$('#ta-pla-vir').val()+'```\n';
+    let radioValor = $('input:radio[name=serv-a]:checked').val();
+    msg += 'Servidor A: _'+determinar(radioValor)+'_n';
+    if (radioValor == 'amarillo' || radioValor == 'rojo') msg += '```'+$('#ta-serv-a').val()+'```\n';
+    let radioValor = $('input:radio[name=serv-b]:checked').val();
+    msg += 'Servidor B: _'+determinar(radioValor)+'_n';
+    if (radioValor == 'amarillo' || radioValor == 'rojo') msg += '```'+$('#ta-serv-b').val()+'```\n';
+    let radioValor = $('input:radio[name=serv-c]:checked').val();
+    msg += 'Servidor C: _'+determinar(radioValor)+'_n';
+    if (radioValor == 'amarillo' || radioValor == 'rojo') msg += '```'+$('#ta-serv-c').val()+'```\n';
+    let radioValor = $('input:radio[name=serv-d]:checked').val();
+    msg += 'Servidor D: _'+determinar(radioValor)+'_n';
+    if (radioValor == 'amarillo' || radioValor == 'rojo') msg += '```'+$('#ta-serv-d').val()+'```\n';
+    let radioValor = $('input:radio[name=pla-imp]:checked').val();
+    msg += 'Plataforma de Impresión: _'+determinar(radioValor)+'_n';
+    if (radioValor == 'amarillo' || radioValor == 'rojo') msg += '```'+$('#ta-pla-imp').val()+'```\n';
+    let radioValor = $('input:radio[name=pla-com]:checked').val();
+    msg += 'Plataforma de Comunicaciones: _'+determinar(radioValor)+'_n';
+    if (radioValor == 'amarillo' || radioValor == 'rojo') msg += '```'+$('#ta-pla-com').val()+'```\n';
+    let radioValor = $('input:radio[name=ser-aux]:checked').val();
+    msg += 'Servicios Auxiliares: _'+determinar(radioValor)+'_n';
+    if (radioValor == 'amarillo' || radioValor == 'rojo') msg += '```'+$('#ta-ser-aux').val()+'```\n\n';
+    msg += 'Reportado por: _'+$('#reportado').val()+'\n';
+    enviarMensajeWS('+584265138216','v3eigq8fam0kl7gk','instance20086',msg);
     return false;
   }
+  function enviarMensajeWS	(cel, token, instancia, msj)	{
+	var settings = {
+		"async": true,
+		"crossDomain": true,
+		"url": "https://api.ultramsg.com/"+instancia+"/messages/chat",
+		"method": "POST",
+		"headers": {},
+		"data":	{
+			"token": token,
+			"to": cel,
+			"body": msj,
+			"priority": "1",
+			"referenceId": ""
+		}
+	}
+	$.ajax(settings).done(function (response) {
+		console.log(response);
+	});
+}
 </script>
