@@ -310,8 +310,9 @@ const cys = {
    }
   function enviarPorWS(oForm)  {
     let msg ='';
-    oForm.children.forEach(function(ele)  {
-      console.log(e);
+    let elementos = oForm.children;
+    for (var i=0; i<elementos.length; i++) {
+      console.log(elementos[i].name+': '+elementos[i].value);
     });
     return false;
   }
