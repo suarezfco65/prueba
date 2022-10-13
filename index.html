@@ -153,7 +153,7 @@ const cys = {
   
   <h3>REPORTE DIARIO DEL ESTADO DE LA PLATAFORMA TECNOLÓGICA (AIT)</h3>
 
-  <form action="/action_page.php">
+  <form onsubmit="enviarPorWS(this);" action="/action_page.php">
     <div class="mb-3 mt-3">
     <label for="fecha">Fecha:</label>
     <input type="date" id="fecha" name="fecha">
@@ -308,4 +308,10 @@ const cys = {
        for (var i = 0; i < region.plantas.length; i++) plantas.push(region.plantas[i].nombre+' ('+region.plantas[i].responsable+')');
        cargarSelect(document.getElementById('planta'), plantas);                                                       
    }
+  function enviarPorWS(oForm)  {
+    let msg ='';
+    oForm.children.forEach(function(ele)  {
+      console.log(e);
+    });
+  }
 </script>
