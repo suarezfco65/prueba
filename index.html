@@ -322,10 +322,14 @@ const cys = {
   }
   function enviarPorWS(oForm)  {
     let msg ='';
-    msg += '*Rep Diario Plataforma Tecn*\n';
+    msg += '*Rep Diario Plataforma Tecnológica*\n';
     msg += '('+$('#fecha').val()+' '+$('#hora').val()+')\n';
-    msg += 'Región: _'+$('#region').val()+'\n';
-    msg += 'Planta: _'+$('#planta').val()+'\n';
+    var select = document.getElementById('region');
+    var text = select.options[select.selectedIndex].text;
+    msg += 'Región: _'+text+'_\n';
+    select = document.getElementById('planta');
+    text = select.options[select.selectedIndex].text;
+    msg += 'Planta: _'+text+'_\n';
     let radioValor = $('input[name=scli-zap]:checked').val();
     msg += 'Aplicación SCLi-SAP: _'+determinar(radioValor)+'_\n';
     if (radioValor == 'amarillo' || radioValor == 'rojo') msg += '```'+$('textarea[name=ta-scli-zap]').val()+'```\n';
@@ -354,7 +358,7 @@ const cys = {
     radioValor = $('input[name=ser-aux]:checked').val();
     msg += 'Servicios Auxiliares: _'+determinar(radioValor)+'_\n';
     if (radioValor == 'amarillo' || radioValor == 'rojo') msg += '```'+$('textarea[name=ta-ser-aux]').val()+'```\n\n';
-    msg += 'Reportado por: _'+$('#reportado').val()+'\n';
+    msg += 'Reportado por: _'+$('#reportado').val()+'_\n';
     enviarMensajeWS('+584265138216','v3eigq8fam0kl7gk','instance20086',msg);
     return false;
   }
