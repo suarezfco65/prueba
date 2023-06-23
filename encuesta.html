@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <title>Equipamiento AIT</title>
+    <style>
+        #result {
+    text-align: left;
+    color: gray;
+    min-height: 2em;
+}
+
+#table-sparkline {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+th {
+    font-weight: bold;
+    text-align: left;
+}
+
+td,
+th {
+    padding: 5px;
+    border-bottom: 1px solid silver;
+    height: 20px;
+}
+
+thead th {
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
+}
+
+.highcharts-tooltip > span {
+    background: white;
+    border: 1px solid silver;
+    border-radius: 3px;
+    box-shadow: 1px 1px 2px #888;
+    padding: 8px;
+}
+
+.highcharts-figure,
+.highcharts-data-table table {
+    min-width: 310px;
+    max-width: 800px;
+    margin: 1em auto;
+}
+
+#container {
+    height: 400px;
+}
+
+.highcharts-data-table table {
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #ebebeb;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.highcharts-data-table th {
+    font-weight: 600;
+    padding: 0.5em;
+}
+
+.highcharts-data-table td,
+.highcharts-data-table th,
+.highcharts-data-table caption {
+    padding: 0.5em;
+}
+
+.highcharts-data-table thead tr,
+.highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
+    </style>
+    <script>
+    function togle(opc) {
+        opciones = ['fusuario', 'fpiso', 'indicadores'];
+        opciones.forEach(element => {
+            var x = document.getElementById(element);
+            if (element === opc) {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        });
+    }
+    </script>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <!-- Container wrapper -->
+  <div class="container">
+    <!-- Navbar brand -->
+    <a class="navbar-brand me-2" target="_blank" href="http://www.pdvsa.com/index.php?lang=es">
+      <img
+        src="images/logoPDVSA.png"
+        alt="Logo de PDVSA"
+        loading="lazy"
+        style="margin-top: -1px;"
+      />
+    </a>
+
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarButtonsExample"
+      aria-controls="navbarButtonsExample"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarButtonsExample">
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="togle('fusuario');">Formulario Usuario</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="togle('fpiso');">Formulario Piso</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="togle('indicadores');">Indicadores</a>
+        </li>
+      </ul>
+      <!-- Left links -->
+
+      <div class="d-flex align-items-center">
+        <button type="button" class="btn btn-primary me-3"  data-bs-toggle="modal" data-bs-target="#modalAcceso">
+          Acceso
+        </button>
+      </div>
+    </div>
+    <!-- Collapsible wrapper -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+
+
+
+<div class="tab-content">
+
+
+    <div id="fusuario" class="container" style="display: none;"><br>
+    <h2>Formulario para usuario</h2>
+    <form action="/action_page.php">
+    <div class="input-group mb-1">
+        <span class="input-group-text" style="width:205px">Ubicación y Organización</span>
+        <input type="text" class="form-control" placeholder="Edificio">
+        <input type="text" class="form-control" placeholder="Piso">
+    </div>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Negocio/Función">
+        <input type="text" class="form-control" placeholder="Gerencia">
+    </div>
+
+    <div class="input-group mb-1">
+        <span class="input-group-text" style="width:205px">Datos Personales</span>
+        <input type="text" class="form-control" placeholder="Nombre">
+        <input type="text" class="form-control" placeholder="Cedula">
+        <input type="text" class="form-control" placeholder="Indicador">
+    </div>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Extensión">
+        <input type="text" class="form-control" placeholder="Celular">
+        <input type="text" class="form-control" placeholder="Cargo">
+    </div>
+
+    <h4>Servicios de Informática</h4>
+    <script>
+        const equipos = ['PC', 'LAPTOP', 'MONITOR', 'TECLADO', 'MOUSE', 'IMPRESORA','REGULADOR', 'OTRO'];
+        equipos.forEach(element => {
+            document.write(`
+    <div class="input-group mb-3">`+ (element == 'OTRO' ? `<input type="text" class="form-control" placeholder="Otro">` : `<span class="input-group-text" style="width:110px">`+element+`</span>`) +`
+        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Posee</span>
+        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Propio</span>
+        <input type="text" class="form-control" placeholder="Modelo">
+        <input type="text" class="form-control" placeholder="Marca">
+        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Operativo</span>
+        <input type="text" class="form-control" placeholder="Caso #">
+        <input type="text" class="form-control" placeholder="Observaciones">
+    </div>
+            `);
+        });
+    </script>
+    
+    <h4>Software</h4>
+    <script>
+        const aplicaciones = [{nombre:'IMAGEN', var:'imgcorp', valores:['PETROS', 'WINDOWS']}, 
+                     {nombre:'OFIMÁTICA', var:'ofim', valores:['LIBRE OFFICE', 'OFFICE PRIV']},
+                     {nombre:'EMAIL', var:'email', valores:['LOTUS NOTES', 'ZIMBRA']}
+                    ];
+        aplicaciones.forEach(element => {
+            document.write(`
+    <div class="input-group mb-1">
+        <span class="input-group-text" style="width:110px">`+element.nombre+`</span>
+        <input style="margin-left: 10px;margin-top: 10px" type="radio" class="form-check-input" name="`+element.var+`" value="0"><span style="margin-left: 5px;margin-top: 5px;margin-right: 5px; width:100px">`+element.valores[0]+`</span>
+        <input style="margin-left: 10px;margin-top: 10px" type="radio" class="form-check-input" name="`+element.var+`" value="1"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px; width:100px">`+element.valores[1]+`</span>
+        <input type="text" class="form-control" placeholder="Versión">
+        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Operativo</span>
+        <input type="text" class="form-control" placeholder="Caso #">
+        <input type="text" class="form-control" placeholder="Observaciones">
+    </div>
+            `);
+        });
+    </script>
+    <div class="input-group mb-3 mt-2">
+        <span class="input-group-text" style="width:110px">SAP</span>
+        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px; width:100px">Utiliza</span>
+        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px; width:100px">Operativo</span>
+        <input type="text" class="form-control" placeholder="Caso #">
+        <input type="text" class="form-control" placeholder="Observaciones">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" style="width:220px">CARPETA DEPARTAMENTAL</span>
+        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Utiliza</span>
+        <input type="text" class="form-control" placeholder="Nombre">
+        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Operativo</span>
+        <input type="text" class="form-control" placeholder="Caso #">
+        <input type="text" class="form-control" placeholder="Observaciones">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" style="width:220px">NECESIDAD DE FORMACIÓN</span>
+        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Aplicaciones Comunes</span>
+        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Aplicaciones Especializadas</span>
+        <input type="text" class="form-control" placeholder="Indique">
+        <input type="text" class="form-control" placeholder="Observaciones">
+    </div>
+
+    <h4>Servicios de Telecomunicaciones</h4>
+    <script>
+        const tele = ['SERVICIO DE RED', 'WIFI', 'VPN', 'INTERNET', 'VIDEO CONFERENCIA', 'TELEFONIA FIJA','MOVIL', 'SIMCARD', 'OTRO'];
+        tele.forEach(element => {
+            document.write(`
+    <div class="input-group mb-3">`+ 
+        (element == 'OTRO' ? `<input type="text" class="form-control" placeholder="Otro">` : `<span class="input-group-text" style="width:190px">`+element+`</span>`) +
+       `<input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">`+((element == 'MOVIL' || element == 'SIMCARD') ?`Propio`:`Dispone`)+`</span>
+        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Operativo</span>
+        <input type="text" class="form-control" placeholder="Caso #">
+        <input type="text" class="form-control" placeholder="Observaciones">
+    </div>
+            `);
+        });
+    </script>
+
+    <h4>Encuesta de satisfacción</h4>
+    <div class="input-group mb-3">
+        <span class="input-group-text">¿CÓMO SE COMUNICA CON AIT?</span>
+        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">105</span>
+        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Correo/Web</span>
+        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Directo al personal</span>
+        <input type="text" class="form-control" placeholder="Observaciones">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">¿CUAL ES LA PERCEPCIÓN DEl SERVICIO DE AIT?</span>
+        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="radio" name="servicio"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Buena</span>
+        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="radio" name="servicio"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Regular</span>
+        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="radio" name="servicio"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Mala</span>
+        <input type="text" class="form-control" placeholder="Observaciones">
+    </div>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Comentarios adicionales">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+
+
+
+
+
+    <div id="fpiso" class="container" style="display: none;"><br>
+      <h2>Formulario para piso</h2>
+    <form action="/action_page.php">
+    <div class="input-group mb-1">
+        <span class="input-group-text" style="width:205px">Ubicación y Organización</span>
+        <input type="text" class="form-control" placeholder="Edificio">
+        <input type="text" class="form-control" placeholder="Piso">
+    </div>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Negocio/Función">
+        <input type="text" class="form-control" placeholder="Gerencia">
+    </div>
+    <h4>Servicios de Informática</h4>
+    <script>
+        const equiposP = ['IMPRESORA RED', 'OTRO'];
+        equiposP.forEach(element => {
+            document.write(`
+    <div class="input-group mb-3">`+ (element == 'OTRO' ? `<input type="text" class="form-control" placeholder="Otro">` : `<span class="input-group-text" style="width:160px">`+element+`</span>`) +`
+        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Posee</span>
+        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Propio</span>
+        <input type="text" class="form-control" placeholder="Modelo">
+        <input type="text" class="form-control" placeholder="Marca">
+        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Operativo</span>
+        <input type="text" class="form-control" placeholder="Caso #">
+        <input type="text" class="form-control" placeholder="Observaciones">
+    </div>
+            `);
+        });
+    </script>
+    <h4>Servicios de Telecomunicaciones</h4>
+    <script>
+        const teleP = ['WIFI', 'VIDEO CONFERENCIA', 'OTRO'];
+        teleP.forEach(element => {
+            document.write(`
+    <div class="input-group mb-3">`+ 
+        (element == 'OTRO' ? `<input type="text" class="form-control" placeholder="Otro">` : `<span class="input-group-text" style="width:190px">`+element+`</span>`) +
+       `<input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">`+((element == 'MOVIL' || element == 'SIMCARD') ?`Propio`:`Dispone`)+`</span>
+        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Operativo</span>
+        <input type="text" class="form-control" placeholder="Caso #">
+        <input type="text" class="form-control" placeholder="Observaciones">
+    </div>
+            `);
+        });
+    </script>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+
+
+
+
+    <div id="indicadores" class="container" style="display: none;"><br>
+      <h3>Indicadores</h3>
+<div id="result"></div>
+<table id="table-sparkline">
+    <thead>
+        <tr>
+            <th>Servicio de Informática</th>
+            <th>Cantidad</th>
+            <th>Posee</th>
+            <th></th>
+            <th>Propias</th>
+            <th></th>
+            <th>Operativas</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="tbody-sparkline">
+        <tr>
+            <th>PC</th>
+            <td>254</td>
+            <td>201</td>
+            <td data-sparkline="71, 78, 39, 66 "/>
+            <td>296</td>
+            <td data-sparkline="68, 52, 80, 96 "/>
+            <td>42</td>
+            <td data-sparkline="3, 26, -41, -30 ; column"/>
+        </tr>
+        <tr>
+            <th>Laptop</th>
+            <td>246</td>
+            <td>150</td>
+            <td data-sparkline="87, 44, 74, 41 "/>
+            <td>181</td>
+            <td data-sparkline="29, 54, 73, 25 "/>
+            <td>65</td>
+            <td data-sparkline="58, -10, 1, 16 ; column"/>
+        </tr>
+        <tr>
+            <th>Monitor</th>
+            <td>245</td>
+            <td>118</td>
+            <td data-sparkline="56, 12, 8, 25 "/>
+            <td>191</td>
+            <td data-sparkline="69, 14, 53, 55 "/>
+            <td>90</td>
+            <td data-sparkline="-13, -2, -45, -30 ; column"/>
+        </tr>
+        <tr>
+            <th>Teclado</th>
+            <td>303</td>
+            <td>200</td>
+            <td data-sparkline="81, 50, 78, 94 "/>
+            <td>76</td>
+            <td data-sparkline="36, 15, 14, 11 "/>
+            <td>227</td>
+            <td data-sparkline="45, 35, 64, 83 ; column"/>
+        </tr>
+        <tr>
+            <th>Mouse</th>
+            <td>200</td>
+            <td>150</td>
+            <td data-sparkline="61, 80, 10, 49 "/>
+            <td>217</td>
+            <td data-sparkline="100, 8, 52, 57 "/>
+            <td>17</td>
+            <td data-sparkline="-39, 72, -42, -8 ; column"/>
+        </tr>
+        <tr>
+            <th>Impresora Local</th>
+            <td>118</td>
+            <td>75</td>
+            <td data-sparkline="13, 48, 21, 36 "/>
+            <td>273</td>
+            <td data-sparkline="98, 86, 8, 81 "/>
+            <td>155</td>
+            <td data-sparkline="-85, -38, 13, -45 ; column"/>
+        </tr>
+        <tr>
+            <th>Regulador</th>
+            <td>201</td>
+            <td>150</td>
+            <td data-sparkline="6, 64, 44, 87 "/>
+            <td>148</td>
+            <td data-sparkline="60, 13, 73, 2 "/>
+            <td>53</td>
+            <td data-sparkline="-54, 51, -29, 85 ; column"/>
+        </tr>
+    </tbody>
+</table>
+<figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">
+        Y por aqui colocamos las respectivas cxonclusiones.
+    </p>
+</figure>
+
+<script>
+    /**
+ * Create a constructor for sparklines that takes some sensible defaults
+ * and merges in the individual chart options. This function is also available
+ * from the jQuery plugin as $(element).highcharts('SparkLine').
+ */
+Highcharts.SparkLine = function (a, b, c) {
+    const hasRenderToArg = typeof a === 'string' || a.nodeName;
+    let options = arguments[hasRenderToArg ? 1 : 0];
+    const defaultOptions = {
+        chart: {
+            renderTo: (
+                (options.chart && options.chart.renderTo) ||
+                (hasRenderToArg && a)
+            ),
+            backgroundColor: null,
+            borderWidth: 0,
+            type: 'area',
+            margin: [2, 0, 2, 0],
+            width: 120,
+            height: 20,
+            style: {
+                overflow: 'visible'
+            },
+            // small optimalization, saves 1-2 ms each sparkline
+            skipClone: true
+        },
+        title: {
+            text: ''
+        },
+        credits: {
+            enabled: false
+        },
+        xAxis: {
+            labels: {
+                enabled: false
+            },
+            title: {
+                text: null
+            },
+            startOnTick: false,
+            endOnTick: false,
+            tickPositions: []
+        },
+        yAxis: {
+            endOnTick: false,
+            startOnTick: false,
+            labels: {
+                enabled: false
+            },
+            title: {
+                text: null
+            },
+            tickPositions: [0]
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            hideDelay: 0,
+            outside: true,
+            shared: true
+        },
+        plotOptions: {
+            series: {
+                animation: false,
+                lineWidth: 1,
+                shadow: false,
+                states: {
+                    hover: {
+                        lineWidth: 1
+                    }
+                },
+                marker: {
+                    radius: 1,
+                    states: {
+                        hover: {
+                            radius: 2
+                        }
+                    }
+                },
+                fillOpacity: 0.25
+            },
+            column: {
+                negativeColor: '#910000',
+                borderColor: 'silver'
+            }
+        }
+    };
+
+    options = Highcharts.merge(defaultOptions, options);
+
+    return hasRenderToArg ?
+        new Highcharts.Chart(a, options, c) :
+        new Highcharts.Chart(options, b);
+};
+
+const start = +new Date(),
+    tds = Array.from(document.querySelectorAll('td[data-sparkline]')),
+    fullLen = tds.length;
+
+let n = 0;
+
+// Creating 153 sparkline charts is quite fast in modern browsers, but mobile
+// can take some seconds, so we split the input into chunks and
+// apply them in timeouts in order avoid locking up the browser process
+// and allow interaction.
+function doChunk() {
+    const time = +new Date(),
+        len = tds.length;
+
+    for (let i = 0; i < len; i += 1) {
+        const td = tds[i];
+        const stringdata = td.dataset.sparkline;
+        const arr = stringdata.split('; ');
+        const data = arr[0].split(', ').map(parseFloat);
+        const chart = {};
+
+        if (arr[1]) {
+            chart.type = arr[1];
+        }
+
+        Highcharts.SparkLine(td, {
+            series: [{
+                data: data,
+                pointStart: 1
+            }],
+            tooltip: {
+                headerFormat: '<span style="font-size: 10px">' +
+                    td.parentElement.querySelector('th').innerText +
+                    ', Q{point.x}:</span><br/>',
+                pointFormat: '<b>{point.y}.000</b> USD'
+            },
+            chart: chart
+        });
+
+        n += 1;
+
+        // If the process takes too much time, run a timeout
+        // to allow interaction with the browser
+        if (new Date() - time > 500) {
+            tds.splice(0, i + 1);
+            setTimeout(doChunk, 0);
+            break;
+        }
+
+        // Print a feedback on the performance
+        if (n === fullLen) {
+            document.getElementById('result').innerHTML =
+                'Generated ' +
+                fullLen +
+                ' sparklines in ' +
+                (new Date() - start) + ' ms';
+        }
+    }
+}
+doChunk();
+Highcharts.chart('container', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Servicio de Informatica'
+    },
+    subtitle: {
+        text: 'Fuente: Encuesta 2023'
+    },
+    xAxis: {
+        categories: [
+            'PC',
+            'LAPTOP',
+            'MONITOR',
+            'TECLADO',
+            'MOUSE',
+            'IMPRESORA',
+            'REGULADOR'
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Trabajadores'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y} </b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'Posee',
+        data: [49, 71, 106, 129, 144, 176, 135]
+
+    }, {
+        name: 'Propia',
+        data: [83, 78, 98, 93, 106, 84, 105]
+
+    }, {
+        name: 'Operativas',
+        data: [48, 38, 39, 41, 47, 48, 59]
+    }]
+});
+</script>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- The Modal -->
+<div class="modal" id="modalAcceso">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Acceso al sistema</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="/action_page.php">
+            <div class="form-floating mb-3 mt-3">
+            <input type="text" class="form-control" id="email" placeholder="Su indicador" name="email">
+            <label for="email">Indicador</label>
+            </div>
+
+            <div class="form-floating mt-3 mb-3">
+            <input type="text" class="form-control" id="pwd" placeholder="Clave de red" name="pswd">
+            <label for="pwd">Clave</label>
+            </div>
+            <div class="form-check mb-3">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox"> Recuerda estos datos
+            </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>
