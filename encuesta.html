@@ -195,11 +195,10 @@ thead th {
     <div class="input-group mb-3">`+ (element == 'OTRO' ? `<input type="text" class="form-control" placeholder="Otro">` : `<span class="input-group-text" style="width:110px">`+element+`</span>`) +`
         <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Posee</span>
         <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Propio</span>
+        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Operativo</span>
         <input type="text" class="form-control" placeholder="Modelo">
         <input type="text" class="form-control" placeholder="Marca">
-        <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Operativo</span>
-        <input type="text" class="form-control" placeholder="Caso #">
-        <input type="text" class="form-control" placeholder="Observaciones">
+        <input type="text" class="form-control" placeholder="Serial #">
     </div>
             `);
         });
@@ -217,9 +216,8 @@ thead th {
         <span class="input-group-text" style="width:110px">`+element.nombre+`</span>
         <input style="margin-left: 10px;margin-top: 10px" type="radio" class="form-check-input" name="`+element.var+`" value="0"><span style="margin-left: 5px;margin-top: 5px;margin-right: 5px; width:100px">`+element.valores[0]+`</span>
         <input style="margin-left: 10px;margin-top: 10px" type="radio" class="form-check-input" name="`+element.var+`" value="1"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px; width:100px">`+element.valores[1]+`</span>
-        <input type="text" class="form-control" placeholder="Versión">
         <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Operativo</span>
-        <input type="text" class="form-control" placeholder="Caso #">
+        <input type="text" class="form-control" placeholder="Versión">
         <input type="text" class="form-control" placeholder="Observaciones">
     </div>
             `);
@@ -229,7 +227,6 @@ thead th {
         <span class="input-group-text" style="width:110px">SAP</span>
         <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px; width:100px">Utiliza</span>
         <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px; width:100px">Operativo</span>
-        <input type="text" class="form-control" placeholder="Caso #">
         <input type="text" class="form-control" placeholder="Observaciones">
     </div>
     <div class="input-group mb-3">
@@ -237,7 +234,6 @@ thead th {
         <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Utiliza</span>
         <input type="text" class="form-control" placeholder="Nombre">
         <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Operativo</span>
-        <input type="text" class="form-control" placeholder="Caso #">
         <input type="text" class="form-control" placeholder="Observaciones">
     </div>
     <div class="input-group mb-3">
@@ -257,7 +253,6 @@ thead th {
         (element == 'OTRO' ? `<input type="text" class="form-control" placeholder="Otro">` : `<span class="input-group-text" style="width:190px">`+element+`</span>`) +
        `<input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">`+((element == 'MOVIL' || element == 'SIMCARD') ?`Propio`:`Dispone`)+`</span>
         <input style="margin-left: 10px;margin-top: 10px" class="form-check-input" type="checkbox"><span style="margin-left: 5px;margin-top: 5px;margin-right: 10px;">Operativo</span>
-        <input type="text" class="form-control" placeholder="Caso #">
         <input type="text" class="form-control" placeholder="Observaciones">
     </div>
             `);
