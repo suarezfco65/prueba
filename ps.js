@@ -1,4 +1,4 @@
-ps	=	[	{	n	:	"André Bélanger",	r	:	`MONT 1728`,	a	:	`2017`,	e	:	``,	p	:	``	},	
+const ps=	[	{	n	:	"André Bélanger",	r	:	`MONT 1728`,	a	:	`2017`,	e	:	``,	p	:	``	},	
 			{	n	:	"Anne-Marie Charlebois",	r	:	`MONT 1419`,	a	:	`2014`,	e	:	``,	p	:	``	},	
 			{	n	:	"Anne-Marie Riel",	r	:	`MONT 1520`,	a	:	`2015`,	e	:	``,	p	:	``	},	
 			{	n	:	"Ariane Picher",	r	:	`MONT 1525`,	a	:	`2015`,	e	:	``,	p	:	``	},	
