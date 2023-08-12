@@ -43,7 +43,7 @@
     <div class="valid-feedback">Valido</div>
     <div class="invalid-feedback">Por favor, confirme la contraseña</div>
     </div>
-    <button type="button" class="btn btn-primary" onclick="validar(this.form);">Submit</button>
+    <button type="button" class="btn btn-primary" onclick="if (validar(this.form)) procesar(this.form);">Submit</button>
   </form>
   <div>
     <p id="hr"></p>
@@ -71,6 +71,7 @@ validar = function (oForm)	{
     	if (v.r === reg) pos = i;
     });
     if (pos > 0)	oForm["nombre"].value = ps[pos].n;
+    return true;
 }
 procesar = function (oForm) {
     document.getElementById("hr").innerHTML = "Hash reg: "+sha256(oForm["reg"].value);
