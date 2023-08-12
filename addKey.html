@@ -45,6 +45,10 @@
     </div>
     <button type="button" class="btn btn-primary" onclick="validar(this.form);">Submit</button>
   </form>
+  <div>
+    <p id="hr"></p>
+    <p id="hp"></p>
+  </div>
 </div>
 
 </body>
@@ -67,5 +71,9 @@ validar = function (oForm)	{
     	if (v.r === reg) pos = i;
     });
     if (pos > 0)	oForm["nombre"].value = ps[pos].n;
+}
+procesar = function (oForm) {
+    document.getElementById("hr").innerHTML = "Hash reg: "+sha256(oForm["reg"].value);
+    document.getElementById("hp").innerHTML = "Hash pwd: "+sha256(oForm["pwd"].value);
 }
 </script>
