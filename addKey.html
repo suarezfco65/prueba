@@ -46,8 +46,9 @@
     <button type="button" class="btn btn-primary" onclick="if (validar(this.form)) procesar(this.form);">Submit</button>
   </form>
   <div>
-    <p>Hash reg: <b id="hr"></b></p>
-    <p>Hash pwd: <b id="hp"></b></p>
+    <p>Hash reg  : <b id="hr"></b></p>
+    <p>Hash email: <b id="he"></b></p>
+    <p>Hash pwd  : <b id="hp"></b></p>
   </div>
 </div>
 
@@ -74,6 +75,7 @@ validar = function (oForm)	{
 }
 procesar = function (oForm) {
     sha256(oForm["reg"].value,'hr');
+    sha256(oForm["email"].value,'he');
     sha256(oForm["pwd"].value,'hp');
 }
 </script>
