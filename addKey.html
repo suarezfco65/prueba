@@ -12,7 +12,7 @@
 
 <div class="container mt-3">
   <h2>Registro de usuario</h2>
-  <form class="was-validated" onsubmit="return validar(this);">
+  <form class="was-validated">
     <div class="mb-3 mt-3">
   	
     <div class="mb-3">
@@ -43,7 +43,7 @@
     <div class="valid-feedback">Valido</div>
     <div class="invalid-feedback">Por favor, confirme la contraseña</div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" class="btn btn-primary" onclick="validar(this);">Submit</button>
   </form>
 </div>
 
