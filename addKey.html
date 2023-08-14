@@ -55,18 +55,22 @@
     <p>Hash profesor: ,{hr:<b id="hr"></b>, hp: <b id="hp"></b>}</p>
   </div>
 </div>
-
+<table>
+  <thead>
+    <th>Nombre</th><th>Registro IBFed</th>
+  </thead>
+</table>
 </body>
 </html>
 <script>
-async function sha256(message, id) {
+async function sha256(message, instruccion) {
     const msgBuffer = new TextEncoder().encode(message); // Codifica la cadena a utf-8
     const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer); // Genera el hash SHA-256 del buffer de mensajes
     const hashArray = Array.from(new Uint8Array(hashBuffer)); // Convierte el hash buffer en un array de bytes
     const hashHex = hashArray
     .map((b) => b.toString(16).padStart(2, "0"))
     .join(""); // Convierte el array de bytes en una cadena hexadecimal return hashHex;
-    document.getElementById(id).innerHTML = hashHex;
+    eval(instruccion);
 }
 validar = function (oForm)	{
 	let reg = oForm['reg'].value;
@@ -78,7 +82,7 @@ validar = function (oForm)	{
     return true;
 }
 procesar = function (oForm) {
-    sha256(oForm["reg"].value,'hr');
-    sha256(oForm["pwd"].value,'hp');
+    sha256(oForm["reg"].value,'document.getElementById("hr").innerHTML = hashHex;');
+    sha256(oForm["pwd"].value,'document.getElementById("hp").innerHTML = hashHex;');
 }
 </script>
