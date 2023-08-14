@@ -19,54 +19,30 @@
 
 <div class="container mt-3">
   <h2>Registro de usuario</h2>
-  <form id=""forma" class="was-validated">
-    <div class="mb-3 mt-3">
-  	
+  <form id="forma">
     <div class="mb-3">
       <label for="Reg">Registro IBFed:</label>
-      <input type="text" class="form-control" name="reg" placeholder="Ingrese el registro" required>
-    <div class="valid-feedback">Valido</div>
-    <div class="invalid-feedback">Por favor, escriba el registro IBFed</div>
+      <input type="text" class="form-control" name="reg" placeholder="Ingrese el registro">
     </div>
     <div class="mb-3">
       <label for="nombre">Nombre:</label>
       <input type="text" class="form-control" name="nombre" placeholder="Ingrese el nombre" readonly>
     </div>
     <div class="mb-3">
-      <label for="email">Correo:</label>
-      <input type="email" class="form-control" name="email" placeholder="Ingrese el correo" required>
-    <div class="valid-feedback">Valido</div>
-    <div class="invalid-feedback">Por favor, escriba el correo</div>
-    </div>
-    <div class="mb-3">
       <label for="pwd">Contraseña:</label>
-      <input type="password" class="form-control" name="pwd" placeholder="Ingrese la contraseña" required>
-    <div class="valid-feedback">Valido</div>
-    <div class="invalid-feedback">Por favor, escriba la contraseña</div>
-    </div>
-    <div class="mb-3">
-      <label for="pwdr">Confirma contraseña:</label>
-      <input type="password" class="form-control" name="pwdr" placeholder="Confirme la contraseña" required>
-    <div class="valid-feedback">Valido</div>
-    <div class="invalid-feedback">Por favor, confirme la contraseña</div>
+      <input type="text" class="form-control" name="pwd" placeholder="Ingrese la contraseña">
     </div>
     <button class="mb-3" type="button" class="btn btn-success" onclick="if (validar(this.form)) procesar(this.form);">Submit</button>
   </form>
-  <div>
-    <p>Hash profesor: ,{hr:<b id="hr"></b>, hp: <b id="hp"></b>}</p>
+  <div class="mb-3">
+    <p>Hash profesor: ,{hr:'<b id="hr"></b>', hp:'<b id="hp"></b>'}</p>
   </div>
+  <table class="table table-striped">
+    <caption>Facilitadores registrados</caption>
+    <thead><th>Nombre</th><th>Registro IBFed</th></thead>
+    <tbody id="regs"></tbody>
+  </table>  
 </div>
-<table>
-  <caption>
-    Facilitadores registrados
-  </caption>
-  <thead>
-    <th>Nombre</th><th>Registro IBFed</th>
-  </thead>
-  <tbody id="regs">
-
-  </tbody>
-</table>
 </body>
 </html>
 <script>
