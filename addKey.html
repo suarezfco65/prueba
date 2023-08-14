@@ -59,6 +59,9 @@
   <thead>
     <th>Nombre</th><th>Registro IBFed</th>
   </thead>
+  <tbody id="regs">
+
+  </tbody>
 </table>
 </body>
 </html>
@@ -85,4 +88,17 @@ procesar = function (oForm) {
     sha256(oForm["reg"].value,'document.getElementById("hr").innerHTML = hashHex;');
     sha256(oForm["pwd"].value,'document.getElementById("hp").innerHTML = hashHex;');
 }
+evaluar = function(hr, pos) {
+  psr.forEach ((v)  =>  {
+    if(v.hr == hr)  {
+      regs.innerHTML += '<tr><td>'+ps[pos].n+'</td><td>'+ps[pos].r+'</td></tr>'
+    }
+  })
+}
+const regs = document.getElementById("regs");
+document.body.onload = function() {
+  ps.forEach((v,i)  =>  {
+    sha256(v.r,'evaluar(hashHex, '+i+');')
+  })
+};
 </script>
