@@ -22,7 +22,7 @@
   <form id="forma">
     <div class="mb-3">
       <label for="Reg">Registro IBFed:</label>
-      <input type="text" class="form-control" name="reg" placeholder="Ingrese el registro">
+      <input type="text" class="form-control" name="reg" placeholder="Ingrese el registro" onchange="this.form['nombre'].value=ps[buscarProfesor(ps,'r',this.value)].n">
     </div>
     <div class="mb-3">
       <label for="nombre">Nombre:</label>
@@ -81,4 +81,7 @@ document.body.onload = function() {
     sha256(v.r,'evaluar(hashHex, '+i+');')
   })
 };
+buscarProfesor = function (l,q,b)  { 
+	let p=-1; l.forEach(function(v, i) { if (v[q] === b) p = i; }); return p;  
+}
 </script>
