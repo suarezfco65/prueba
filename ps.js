@@ -6664,5 +6664,8 @@ const ps=	[	{	n	:	`Abad Arévalo Candy`,	r	:	`PUEM 2013`,	a	:	`2020`,	e	:	``,	p	
 		{	n	:	`Zulema Gauto`,	r	:	`CORC 1828`,	a	:	`2018`,	e	:	``,	p	:	``	},
 		{	n	:	`Zulma Maria Foschiatti `,	r	:	`COGUA 1906`,	a	:	`2019`,	e	:	``,	p	:	``	},
 		{	n	:	`Zulmira Aurea Cruz Bonfim`,	r	:	`FT 8402`,	a	:	`1984`,	e	:	``,	p	:	``	},
-		{	n	:	`Zunilda María Teresita Espósito`,	r	:	`MEN 1624`,	a	:	`2016`,	e	:	``,	p	:	``	}	]
+		{	n	:	`Zunilda María Teresita Espósito`,	r	:	`MEN 1624`,	a	:	`2016`,	e	:	``,	p	:	``	}	];
 
+
+// Estudiantes... Accesos especiales		
+ps.push({	n	:	`Yordana Durán`,	r	:	`ESTUDIANTE 1`,	a	:	`2023`,	e	:	``,	p	:	``	});
