@@ -6669,3 +6669,4 @@ const ps=	[	{	n	:	`Abad Arévalo Candy`,	r	:	`PUEM 2013`,	a	:	`2020`,	e	:	``,	p	
 
 // Estudiantes... Accesos especiales		
 ps.push({	n	:	`Yordana Durán`,	r	:	`ESTUDIANTE 1`,	a	:	`2023`,	e	:	``,	p	:	``	});
+ps.push({	n	:	`Susana Ysso`,		r	:	`ESTUDIANTE 2`,	a	:	`2023`,	e	:	``,	p	:	``	});
