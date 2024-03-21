@@ -6665,7 +6665,8 @@ const ps=	[	{	n	:	`Abad Arévalo Candy`,	r	:	`PUEM 2013`,	a	:	`2020`,	e	:	``,	p	
 		{	n	:	`Zulma Maria Foschiatti `,	r	:	`COGUA 1906`,	a	:	`2019`,	e	:	``,	p	:	``	},
 		{	n	:	`Zulmira Aurea Cruz Bonfim`,	r	:	`FT 8402`,	a	:	`1984`,	e	:	``,	p	:	``	},
 		{	n	:	`Zunilda María Teresita Espósito`,	r	:	`MEN 1624`,	a	:	`2016`,	e	:	``,	p	:	``	},
-		{	n	:	`Iliana Cardales Marrugos`,	r	:	`ZUL 2331`,	a	:	`2023`,	e	:	``,	p	:	``	}
+		{	n	:	`Iliana Cardales Marrugos`,	r	:	`ZUL 2331`,	a	:	`2023`,	e	:	``,	p	:	``	},
+		{	n	:	`Silena Mendoza Mendoza`,	r	:	`COBANO 2302`,	a	:	`2023`,	e	:	``,	p	:	``	},		
 		];
 
 
