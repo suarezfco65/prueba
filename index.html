@@ -386,7 +386,7 @@ const cys = {
     radioValor = $('input[name=ser-aux]:checked').val();
     msg += '\nServicios Auxiliares: _'+determinar(radioValor)+'_\n';
     if (radioValor == 'amarillo' || radioValor == 'rojo') msg += '```'+$('textarea[name=ta-ser-aux]').val()+'```\n\n';
-    msg += 'Reportado por: _'+$('#reportado').val()+'_\n';
+    msg += '\nReportado por: _'+$('#reportado').val()+'_\n';
     document.getElementById('mensajeWS').innerHTML = msg;
     enviarMensajeWS('+584165670214','v3eigq8fam0kl7gk','instance20086',msg);
     enviarMensajeWS('+584166843149','v3eigq8fam0kl7gk','instance20086',msg);
