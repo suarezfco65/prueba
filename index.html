@@ -306,7 +306,7 @@ const cys = {
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="copiarAlPortapapeles(document.getElementById('mensajeWS').innerHTML)">Copiar</button>
       </div>
 
     </div>
@@ -407,7 +407,15 @@ const cys = {
 			"referenceId": ""
 		}
 	}
-	$.ajax(settings).done(function (response) {
+  const copiarAlPortapapeles = (texto) => {
+    var elementoTemporal = document.createElement("textarea");
+    elementoTemporal.value = texto;
+    document.body.appendChild(elementoTemporal);
+    elementoTemporal.select();
+    document.execCommand("copy");
+    document.body.removeChild(elementoTemporal);
+  }
+  $.ajax(settings).done(function (response) {
 		console.log(response);
 	});
 }
