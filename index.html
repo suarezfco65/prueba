@@ -358,9 +358,10 @@ const cys = {
     text = select.options[select.selectedIndex].text;
     msg += 'Planta: _'+text+'_\n';
     let radioValor = $('input[name=scli-zap]:checked').val();
+    msg += '\n*Plataforma Aplicaciones*\n';
     msg += 'Aplicación SCLi-SAP: _'+determinar(radioValor)+'_\n';
     if (radioValor == 'amarillo' || radioValor == 'rojo') msg += '```'+$('textarea[name=ta-scli-zap]').val()+'```\n';
-    msg += '*Plataforma Servidores*\n';
+    msg += '\n*Plataforma Servidores*\n';
     radioValor = $('input[name=pla-vir]:checked').val();
     msg += 'Plataforma Virtualizada: _'+determinar(radioValor)+'_\n';
     if (radioValor == 'amarillo' || radioValor == 'rojo') msg += '```'+$('textarea[name=ta-pla-vir]').val()+'```\n';
@@ -380,10 +381,10 @@ const cys = {
     msg += 'Plataforma de Impresión: _'+determinar(radioValor)+'_\n';
     if (radioValor == 'amarillo' || radioValor == 'rojo') msg += '```'+$('textarea[name=ta-pla-imp]').val()+'```\n';
     radioValor = $('input[name=pla-com]:checked').val();
-    msg += 'Plataforma de Comunicaciones: _'+determinar(radioValor)+'_\n';
+    msg += '\nPlataforma de Comunicaciones: _'+determinar(radioValor)+'_\n';
     if (radioValor == 'amarillo' || radioValor == 'rojo') msg += '```'+$('textarea[name=ta-pla-com]').val()+'```\n';
     radioValor = $('input[name=ser-aux]:checked').val();
-    msg += 'Servicios Auxiliares: _'+determinar(radioValor)+'_\n';
+    msg += '\nServicios Auxiliares: _'+determinar(radioValor)+'_\n';
     if (radioValor == 'amarillo' || radioValor == 'rojo') msg += '```'+$('textarea[name=ta-ser-aux]').val()+'```\n\n';
     msg += 'Reportado por: _'+$('#reportado').val()+'_\n';
     document.getElementById('mensajeWS').innerHTML = msg;
