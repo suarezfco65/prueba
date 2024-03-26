@@ -407,16 +407,17 @@ const cys = {
 			"referenceId": ""
 		}
 	}
-  function copiarAlPortapapeles(texto) {
+  $.ajax(settings).done(function (response) {
+		console.log(response);
+	});
+}
+function copiarAlPortapapeles(texto) {
     var elementoTemporal = document.createElement("textarea");
     elementoTemporal.value = texto;
     document.body.appendChild(elementoTemporal);
     elementoTemporal.select();
     document.execCommand("copy");
     document.body.removeChild(elementoTemporal);
-  }
-  $.ajax(settings).done(function (response) {
-		console.log(response);
-	});
 }
+
 </script>
