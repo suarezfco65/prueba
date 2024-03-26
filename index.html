@@ -280,11 +280,35 @@ const cys = {
       <label for="reportado" class="form-label">Reportado por:</label>
       <input type="text" class="form-control" id="reportado" name="reportado">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalWS">Submit</button>
   </form>
   
 </div>
 
+<!-- The Modal -->
+<div class="modal" id="modalWS">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Reporte</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body" id="mensajeWS">
+        
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
 </body>
 </html>
 
@@ -359,6 +383,7 @@ const cys = {
     msg += 'Servicios Auxiliares: _'+determinar(radioValor)+'_\n';
     if (radioValor == 'amarillo' || radioValor == 'rojo') msg += '```'+$('textarea[name=ta-ser-aux]').val()+'```\n\n';
     msg += 'Reportado por: _'+$('#reportado').val()+'_\n';
+    document.getElementById('mensajeWS').innerHTML = msg;
     enviarMensajeWS('+584165670214','v3eigq8fam0kl7gk','instance20086',msg);
     enviarMensajeWS('+584166843149','v3eigq8fam0kl7gk','instance20086',msg);
     return false;
