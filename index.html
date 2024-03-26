@@ -280,38 +280,11 @@ const cys = {
       <label for="reportado" class="form-label">Reportado por:</label>
       <input type="text" class="form-control" id="reportado" name="reportado">
     </div>
-    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalWS">Submit</button>
+    <button type="submit" class="btn btn-primary">Copiar al portapapeles</button>
   </form>
   
 </div>
 
-<!-- The Modal -->
-<div class="modal" id="modalWS">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Reporte</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-            <div class="mb-3 mt-3">
-                <label for="comment">Mensaje por Whatsapp:</label>
-                <textarea id="mensajeWS" class="form-control" rows="10" id="comment" name="text"></textarea>
-           </div>
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="copiarAlPortapapeles(document.getElementById('mensajeWS').innerHTML)">Copiar</button>
-      </div>
-
-    </div>
-  </div>
-</div>
 </body>
 </html>
 
@@ -387,37 +360,38 @@ const cys = {
     msg += '\nServicios Auxiliares: _'+determinar(radioValor)+'_\n';
     if (radioValor == 'amarillo' || radioValor == 'rojo') msg += '```'+$('textarea[name=ta-ser-aux]').val()+'```\n\n';
     msg += '\nReportado por: _'+$('#reportado').val()+'_\n';
-    document.getElementById('mensajeWS').innerHTML = msg;
+    copiarAlPortapapeles(msg);
+    /*
     enviarMensajeWS('+584165670214','v3eigq8fam0kl7gk','instance20086',msg);
     enviarMensajeWS('+584166843149','v3eigq8fam0kl7gk','instance20086',msg);
+    */
     return false;
   }
   function enviarMensajeWS	(cel, token, instancia, msj)	{
-	var settings = {
-		"async": true,
-		"crossDomain": true,
-		"url": "https://api.ultramsg.com/"+instancia+"/messages/chat",
-		"method": "POST",
-		"headers": {},
-		"data":	{
-			"token": token,
-			"to": cel,
-			"body": msj,
-			"priority": "1",
-			"referenceId": ""
-		}
-	}
-  $.ajax(settings).done(function (response) {
-		console.log(response);
-	});
-}
-function copiarAlPortapapeles(texto) {
+	  var settings = {
+		  "async": true,
+		  "crossDomain": true,
+		  "url": "https://api.ultramsg.com/"+instancia+"/messages/chat",
+		  "method": "POST",
+		  "headers": {},
+		  "data":	{
+			  "token": token,
+			  "to": cel,
+			  "body": msj,
+			  "priority": "1",
+			  "referenceId": ""
+		  }
+	  }
+    $.ajax(settings).done(function (response) {
+		  console.log(response);
+	  });
+  }
+  function copiarAlPortapapeles(texto) {
     var elementoTemporal = document.createElement("textarea");
     elementoTemporal.value = texto;
     document.body.appendChild(elementoTemporal);
     elementoTemporal.select();
     document.execCommand("copy");
     document.body.removeChild(elementoTemporal);
-}
-
+  }
 </script>
