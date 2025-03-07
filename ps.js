@@ -6678,6 +6678,7 @@ ps.push({	n	:	`Veronica Toro`,		r	:	`FRTA VT`,	a	:	``,	e	:	``,	p	:	``	});
 ps.push({	n	:	`Virtudes Jaen`,		r	:	`ESTUDIANTE 4`,	a	:	`2025`,	e	:	``,	p	:	``	});
 ps.push({	n	:	`Natividad Martin`,		r	:	`ESTUDIANTE 5`,	a	:	`2025`,	e	:	``,	p	:	``	});
 ps.push({	n	:	`Maria Dolores Gutierrez`,	r	:	`ESTUDIANTE 6`,	a	:	`2025`,	e	:	``,	p	:	``	});
+ps.push({	n	:	`Elena Sibaja`,			r	:	`ESTUDIANTE 7`,	a	:	`2025`,	e	:	``,	p	:	``	});
 
 
 
