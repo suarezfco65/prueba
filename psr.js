@@ -1,3 +1,17 @@
+/*
+Hola Elena, gusto en saludarte.
+
+Por aquí, te paso los datos para acceder a Yo❤Biodanza
+
+https://suarezfco65.github.io/mibiodanza
+
+Debes indicar tu usuario: ESTUDIANTE 7
+Clave: ElSi0703
+
+Agradezco no compartir la clave. ésta pagina es solamente para estudiantes.  Será eliminada a los 6 meses de uso.
+
+Si tienes algún inconveniente en acceder, puedes escribirme.
+*/
 const psr = [
      {hr:'e082731cfd00fa0213fd16a87caa475469959ce3d10bd1a191d887297e694536', hp:'8284fc084e1761ba8619a654bc0650a902d76ff2798999aafd8de964b31cdcb6'}
     ,{hr:'c497b442f6652006058e2d0f9c84434d1ce3554d36b8f4fcfd97f0621fc03748', hp:'181f9ba18a67d9f522a90a868a57b9072f19466d60302548a70e7cee03fd907f'}
