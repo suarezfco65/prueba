@@ -47,7 +47,7 @@
   <table class="table table-striped">
     <thead>
       <tr><th colspan="2">Facilitadores registrados</th></tr>
-      <tr><th>Nombre</th><th>Registro IBFed</th></tr>
+      <tr><th>Nombre</th><th>Registro IBFed</th><th>Pos</th></tr>
     </thead>
     <tbody id="regs"></tbody>
   </table>  
@@ -87,7 +87,7 @@ procesar = function (oForm) {
 evaluar = function(hr, pos) {
     psr.forEach((v,i) => { // Recorre el array de registros
         if(v.hr == hr) { // Si el hash coincide
-            regs.innerHTML += '<tr><td>'+ps[pos].n+' ('+i+')</td><td>'+ps[pos].r+'</td></tr>' // Añade fila a la tabla
+            regs.innerHTML += '<tr><td>'+ps[pos].n+'</td><td>'+ps[pos].r+'</td><td>'+i+'</td></tr>' // Añade fila a la tabla
         }
     })
 }
