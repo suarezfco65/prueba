@@ -85,9 +85,9 @@ procesar = function (oForm) {
 
 // Función para evaluar y mostrar registros de profesores
 evaluar = function(hr, pos) {
-    psr.forEach((v) => { // Recorre el array de registros
+    psr.forEach((v,i) => { // Recorre el array de registros
         if(v.hr == hr) { // Si el hash coincide
-            regs.innerHTML += '<tr><td id="prof'+pos+'">'+ps[pos].n+'</td><td>'+ps[pos].r+'</td></tr>' // Añade fila a la tabla
+            regs.innerHTML += '<tr><td>'ps[pos].n+' ('+i+')</td><td>'+ps[pos].r+'</td></tr>' // Añade fila a la tabla
         }
     })
 }
