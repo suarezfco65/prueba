@@ -1,17 +1,3 @@
-/*
-Hola Elena, gusto en saludarte.
-
-Por aquí, te paso los datos para acceder a Yo❤Biodanza
-
-https://suarezfco65.github.io/mibiodanza
-
-Debes indicar tu usuario: ESTUDIANTE 7
-Clave: ElSi0703
-
-Agradezco no compartir la clave. ésta pagina es solamente para estudiantes.  Será eliminada a los 6 meses de uso.
-
-Si tienes algún inconveniente en acceder, puedes escribirme.
-*/
 const psr = [
      {hr:'e082731cfd00fa0213fd16a87caa475469959ce3d10bd1a191d887297e694536', hp:'8284fc084e1761ba8619a654bc0650a902d76ff2798999aafd8de964b31cdcb6'}
     ,{hr:'c497b442f6652006058e2d0f9c84434d1ce3554d36b8f4fcfd97f0621fc03748', hp:'181f9ba18a67d9f522a90a868a57b9072f19466d60302548a70e7cee03fd907f'}
@@ -63,4 +49,19 @@ const psr = [
     ,{hr:'f812bfaec0035b0d21e6f2294c214206c76e184fc7ffb5ca83115c63813c02a0', hp:'1d4b3ee0d2de91f16aa420007b9fd999cbf2b531138ac871e9c1bc6cd6402993'}
     ,{hr:'9330ec888a6a9788698635f4f46a46d5b8ec7c9964281d17401f94d142af8c96', hp:'df96f828704f99ce9bd0177034a23be08d3fd074d1ab5bd0f07cd5eee3a48883'}
     ,{hr:'cd59c8c0c0b943d2515ccc89636ad64d7ec9badee975294acbcfb799a908918a', hp:'f01583d6f2f88d5bd0f8c84f4e8489743e578e5da5e68666e77d24127639489b'}
+    ,{hr:'b863e08d736999985c43433726a1da20dae369058b0d7dd646567b65fe2ed3ee', hp:'7a39b170a239d96206eab09dd34176568a5eeae257a25998e934f209cd45fad6'}
 ];
+/*
+Hola Tessa, gusto en saludarte.
+
+Por aquí, te paso los datos para acceder a Yo❤Biodanza
+
+https://suarezfco65.github.io/mibiodanza
+
+Debes indicar tu usuario: ESTUDIANTE 8
+Clave: TeGuGi1003
+
+Agradezco no compartir la clave. ésta pagina es solamente para estudiantes.  Será eliminada a los 6 meses de uso.
+
+Si tienes algún inconveniente en acceder, puedes escribirme.
+*/
