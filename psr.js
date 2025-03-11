@@ -50,18 +50,5 @@ const psr = [
     ,{hr:'cd59c8c0c0b943d2515ccc89636ad64d7ec9badee975294acbcfb799a908918a', hp:'f01583d6f2f88d5bd0f8c84f4e8489743e578e5da5e68666e77d24127639489b'}
     ,{hr:'b863e08d736999985c43433726a1da20dae369058b0d7dd646567b65fe2ed3ee', hp:'7a39b170a239d96206eab09dd34176568a5eeae257a25998e934f209cd45fad6'}
     ,{hr:'e16569d79549f7ebe410923b5f88275c2d7d7a00df16e32bfb5fcc12f4b885d3', hp:'234684355ca5e6c281c8bf0cb1fa70d42ec7832f57bc342b28fa16c30e76e471'}
+    ,{hr:'16fad6275ef31036d00b061f84e6863e838ab8468f3606d4fcedc0bf42c81ddb', hp:'30cc56a649ca725033eabe2033302d7ec574626220426c551cdd490c0e4eeb96'}
 ];
-/*
-Hola Tessa, gusto en saludarte.
-
-Por aquí, te paso los datos para acceder a Yo❤Biodanza
-
-https://suarezfco65.github.io/mibiodanza
-
-Debes indicar tu usuario: ESTUDIANTE 8
-Clave: TeGuGi1003
-
-Agradezco no compartir la clave. ésta pagina es solamente para estudiantes.  Será eliminada a los 6 meses de uso.
-
-Si tienes algún inconveniente en acceder, puedes escribirme.
-*/
