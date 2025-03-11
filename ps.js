@@ -6671,7 +6671,7 @@ const ps=	[	{	n	:	`Abad Arévalo Candy`,	r	:	`PUEM 2013`,	a	:	`2020`,	e	:	``,	p	
 
 
 // Estudiantes... Accesos especiales		
-ps.push({	n	:	`Ma Dolores Gutierrez`,	r	:	`YAB 006`,	a	:	`2025`,	e	:	``,	p	:	``	});
+ps.push({	n	:	`Ma Dolores Gutierrez`,		r	:	`YAB 006`,	a	:	`2025`,	e	:	``,	p	:	``	});
 ps.push({	n	:	`Yordana Durán`,		r	:	`ESTUDIANTE 1`,	a	:	`2023`,	e	:	``,	p	:	``	});
 ps.push({	n	:	`Susana Ysso`,			r	:	`ESTUDIANTE 2`,	a	:	`2023`,	e	:	``,	p	:	``	});
 ps.push({	n	:	`Esperanza Moyano Conde`,	r	:	`ESTUDIANTE 3`,	a	:	`2023`,	e	:	``,	p	:	``	});
@@ -6680,6 +6680,7 @@ ps.push({	n	:	`Virtudes Jaen`,		r	:	`ESTUDIANTE 4`,	a	:	`2025`,	e	:	``,	p	:	``	}
 ps.push({	n	:	`Natividad Martin`,		r	:	`ESTUDIANTE 5`,	a	:	`2025`,	e	:	``,	p	:	``	});
 ps.push({	n	:	`Elena Sibaja`,			r	:	`ESTUDIANTE 7`,	a	:	`2025`,	e	:	``,	p	:	``	});
 ps.push({	n	:	`Teresa Guerra Gil`,		r	:	`ESTUDIANTE 8`,	a	:	`2025`,	e	:	``,	p	:	``	});
+ps.push({	n	:	`Maria Dolores Gutierrez`,	r	:	`ESTUDIANTE 9`,	a	:	`2025`,	e	:	``,	p	:	``	});
 
 
 
