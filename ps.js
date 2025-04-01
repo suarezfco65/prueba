@@ -6674,12 +6674,12 @@ const ps=	[	{	n	:	`Abad Arévalo Candy`,	r	:	`PUEM 2013`,	a	:	`2020`,	e	:	``,	p	
 ps.push({	n	:	`Veronica Toro`,		r	:	`FRTA VT`,	a	:	``,	e	:	``,	p	:	``,	f	:	`2025-04-01`	});
 ps.push({	n	:	`Yordana Durán`,		r	:	`ESTUDIANTE 1`,	a	:	`2023`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	});
 ps.push({	n	:	`Susana Ysso`,			r	:	`ESTUDIANTE 2`,	a	:	`2023`,	e	:	``,	p	:	``,	f	:	`2025-09-01`	});
-ps.push({	n	:	`Esperanza Moyano Conde`,	r	:	`ESTUDIANTE 3`,	a	:	`2023`,	e	:	``,	p	:	``,	f	:	`2025-09-01`	});
-ps.push({	n	:	`Virtudes Jaen`,		r	:	`ESTUDIANTE 4`,	a	:	`2025`,	e	:	``,	p	:	``,	f	:	`2025-09-01`	});
-ps.push({	n	:	`Natividad Martin`,		r	:	`ESTUDIANTE 5`,	a	:	`2025`,	e	:	``,	p	:	``,	f	:	`2025-09-01`	});
-ps.push({	n	:	`Elena Sibaja`,			r	:	`ESTUDIANTE 7`,	a	:	`2025`,	e	:	``,	p	:	``,	f	:	`2025-09-01`	});
-ps.push({	n	:	`Teresa Guerra Gil`,		r	:	`ESTUDIANTE 8`,	a	:	`2025`,	e	:	``,	p	:	``,	f	:	`2025-09-01`	});
-ps.push({	n	:	`Maria Dolores Gutierrez`,	r	:	`ESTUDIANTE 9`,	a	:	`2025`,	e	:	``,	p	:	``,	f	:	`2025-09-01`	});
+ps.push({	n	:	`Esperanza Moyano Conde`,	r	:	`ESTUDIANTE 3`,	a	:	`2023`,	e	:	``,	p	:	``,	f	:	`2025-09-02`	});
+ps.push({	n	:	`Virtudes Jaen`,		r	:	`ESTUDIANTE 4`,	a	:	`2025`,	e	:	``,	p	:	``,	f	:	`2025-09-03`	});
+ps.push({	n	:	`Natividad Martin`,		r	:	`ESTUDIANTE 5`,	a	:	`2025`,	e	:	``,	p	:	``,	f	:	`2025-09-04`	});
+ps.push({	n	:	`Elena Sibaja`,			r	:	`ESTUDIANTE 7`,	a	:	`2025`,	e	:	``,	p	:	``,	f	:	`2025-09-05`	});
+ps.push({	n	:	`Teresa Guerra Gil`,		r	:	`ESTUDIANTE 8`,	a	:	`2025`,	e	:	``,	p	:	``,	f	:	`2025-09-06`	});
+ps.push({	n	:	`Maria Dolores Gutierrez`,	r	:	`ESTUDIANTE 9`,	a	:	`2025`,	e	:	``,	p	:	``,	f	:	`2025-09-07`	});
 
 
 
