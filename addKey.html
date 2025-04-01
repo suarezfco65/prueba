@@ -34,6 +34,10 @@
       <!-- Campo de nombre que se llena automáticamente y es de solo lectura -->
     </div>
     <div class="mb-3">
+      <label for="exp">Fecha que expira:</label>
+      <input type="date" class="form-control" name="exp" placeholder="Ingrese la fecha que expira">
+    </div>
+    <div class="mb-3">
       <label for="pwd">Contraseña:</label>
       <input type="text" class="form-control" name="pwd" placeholder="Ingrese la contraseña">
     </div>
@@ -42,12 +46,12 @@
     <!-- Botón para enviar el formulario, valida primero antes de procesar -->
   </form>
   <div class="mb-3">
-    <p>Hash profesor: ,{hr:'<b id="hr"></b>', hp:'<b id="hp"></b>'}</p>
+    <p>Hash profesor: ,{hr:'<b id="hr"></b>', hp:'<b id="hp"></b>', fe:'<b id="fe"></b>'}</p>
   </div>
   <table class="table table-striped">
     <thead>
       <tr><th colspan="2">Facilitadores registrados</th></tr>
-      <tr><th>Nombre</th><th>Registro IBFed</th><th>Pos</th></tr>
+      <tr><th>Nombre</th><th>Registro IBFed</th><th>Expira</th><th>Pos</th></tr>
     </thead>
     <tbody id="regs"></tbody>
   </table>  
@@ -81,13 +85,14 @@ validar = function (oForm) {
 procesar = function (oForm) {
     sha256(oForm["reg"].value,'document.getElementById("hr").innerHTML = hashHex;'); // Calcula el hash del registro
     sha256(oForm["pwd"].value,'document.getElementById("hp").innerHTML = hashHex;'); // Calcula el hash de la contraseña
+    sha256(oForm["exp"].value,'document.getElementById("fe").innerHTML = hashHex;'); // Calcula el hash de la fecha que expira
 }
 
 // Función para evaluar y mostrar registros de profesores
 evaluar = function(hr, pos) {
     psr.forEach((v,i) => { // Recorre el array de registros
         if(v.hr == hr) { // Si el hash coincide
-            regs.innerHTML += '<tr><td>'+ps[pos].n+'</td><td>'+ps[pos].r+'</td><td>'+i+'</td></tr>' // Añade fila a la tabla
+            regs.innerHTML += '<tr><td>'+ps[pos].n+'</td><td>'+ps[pos].r+'</td><td>'+v.fe+'</td><td>'+i+'</td></tr>' // Añade fila a la tabla
         }
     })
 }
