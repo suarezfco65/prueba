@@ -2161,7 +2161,7 @@ const ps=	[	{	n	:	`Abad Arévalo Candy`,	r	:	`PUEM 2013`,	a	:	`2020`,	e	:	``,	p	
 		{	n	:	`Francisco Guergen Neto`,	r	:	`PA 9413`,	a	:	`1994`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Francisco J. Carratalà Gimeno`,	r	:	`VAL 1530`,	a	:	``,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Francisco Javier Pérez de la Vega`,	r	:	`BI 2239`,	a	:	``,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
-		{	n	:	`Francisco Javier Suarez Yallonardo`,	r	:	`BARQ 2262`,	a	:	`2022`,	e	:	`suarezfco65@gmail.com`,	p	:	`123456`,	f	:	`2055-04-01`	},
+		{	n	:	`Francisco Javier Suarez Yallonardo`,	r	:	`BARQ 2262`,	a	:	`2022`,	e	:	`suarezfco65@gmail.com`,	p	:	`123456`,	f	:	`2025-04-01`	},
 		{	n	:	`Francisco Jiménez Mateo`,	r	:	`SEV 1813`,	a	:	``,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Francisco Karmelic Bascuñan`,	r	:	`ISNE 2030`,	a	:	`2020`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Francisco Madson Parente Gomes`,	r	:	`FT 1387`,	a	:	`2013`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
