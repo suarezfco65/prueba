@@ -85,6 +85,7 @@ validar = function (oForm) {
 procesar = function (oForm) {
     sha256(oForm["reg"].value,'document.getElementById("hr").innerHTML = hashHex;'); // Calcula el hash del registro
     sha256(oForm["pwd"].value,'document.getElementById("hp").innerHTML = hashHex;'); // Calcula el hash de la contraseña
+    console.log('exp',oForm["exp"].value);
     sha256(oForm["exp"].value,'document.getElementById("fe").innerHTML = hashHex;'); // Calcula el hash de la fecha que expira
 }
 
