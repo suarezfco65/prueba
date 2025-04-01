@@ -46,7 +46,7 @@
     <!-- Botón para enviar el formulario, valida primero antes de procesar -->
   </form>
   <div class="mb-3">
-    <p>Hash profesor: ,{hr:'<b id="hr"></b>', hp:'<b id="hp"></b>', fe:'<b id="fe"></b>'}</p>
+    <p>Hash profesor: ,{hr:'<b id="hr"></b>', hp:'<b id="hp"></b>', fe:'<b id="fe"></b>', fv:'<b id="fv"></b>'}</p>
   </div>
   <table class="table table-striped">
     <thead>
@@ -85,7 +85,8 @@ validar = function (oForm) {
 procesar = function (oForm) {
     sha256(oForm["reg"].value,'document.getElementById("hr").innerHTML = hashHex;'); // Calcula el hash del registro
     sha256(oForm["pwd"].value,'document.getElementById("hp").innerHTML = hashHex;'); // Calcula el hash de la contraseña
-    sha256(oForm["exp"].value,'document.getElementById("fe").innerHTML = hashHex;'); // Calcula el hash de la fecha que expira
+    document.getElementById("fe").innerHTML = oForm["exp"].value;
+    sha256(oForm["exp"].value,'document.getElementById("fv").innerHTML = hashHex;'); // Calcula el hash de la fecha que expira
 }
 
 // Función para evaluar y mostrar registros de profesores
