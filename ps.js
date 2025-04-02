@@ -1942,7 +1942,7 @@ const ps=	[	{	n	:	`Abad Arévalo Candy`,	r	:	`PUEM 2013`,	a	:	`2020`,	e	:	``,	p	
 		{	n	:	`Esther Vetsch-Lohm`,	r	:	`VRB 1705`,	a	:	``,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Esti Rose Weiland Baum`,	r	:	`RTC 0664`,	a	:	`2006`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Etty Rosenberg`,	r	:	`CLA 0710`,	a	:	`2007`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
-		{	n	:	`Eucaris María Rodriguez Barraza`,	r	:	`ISMAR 1615`,	a	:	`2016`,	e	:	``,	p	:	``,	f	:	`2025-05-01`	},
+		{	n	:	`Eucaris María Rodriguez Barraza`,	r	:	`ISMAR 1615`,	a	:	`2016`,	e	:	``,	p	:	``,	f	:	`2025-04-30`	},
 		{	n	:	`Eugenia Delbono Tesio`,	r	:	`BIOSA 1401`,	a	:	`2014`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Eugenia Difonso`,	r	:	`PBA 0412`,	a	:	`2004`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Eugenia Paesano`,	r	:	`RT 9639`,	a	:	``,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
