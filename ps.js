@@ -403,7 +403,7 @@ const ps=	[	{	n	:	`Abad Arévalo Candy`,	r	:	`PUEM 2013`,	a	:	`2020`,	e	:	``,	p	
 		{	n	:	`Anat Lev`,	r	:	`ISR 2057`,	a	:	``,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Anavictoria Risi Álvarez `,	r	:	`STGO 2063`,	a	:	`2020`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Anderson José Adami`,	r	:	`CATSE 1920`,	a	:	`2019`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
-		{	n	:	`Andlys Jose Andueza Torres`,	r	:	`BARQ 2281`,	a	:	`2022`,	e	:	``,	p	:	``,	f	:	`2025-02-01`	},
+		{	n	:	`Andlys Jose Andueza Torres`,	r	:	`BARQ 2281`,	a	:	`2022`,	e	:	``,	p	:	``,	f	:	`2026-02-01`	},
 		{	n	:	`André Bélanger`,	r	:	`MONT 1728`,	a	:	`2017`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`André Bocchetti`,	r	:	`RJ 17101`,	a	:	`2017`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`André Carlos Costa`,	r	:	`PA 0549`,	a	:	`2005`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
