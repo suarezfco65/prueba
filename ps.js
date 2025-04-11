@@ -5993,7 +5993,7 @@ const ps=	[	{	n	:	`Abad Arévalo Candy`,	r	:	`PUEM 2013`,	a	:	`2020`,	e	:	``,	p	
 		{	n	:	`Silvia Friso`,	r	:	`BO 20225`,	a	:	``,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Silvia Gabriela Mohaded`,	r	:	`COR 1691`,	a	:	`2016`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Silvia Gabriela Somaré`,	r	:	`PUN 1508`,	a	:	`2015`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
-		{	n	:	`Silvia Gisela Garabote Madroñero`,	r	:	`BARQ 1847`,	a	:	`2018`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
+		{	n	:	`Silvia Gisela Garabote Madroñero`,	r	:	`BARQ 1847`,	a	:	`2018`,	e	:	``,	p	:	``,	f	:	`2025-07-01`	},
 		{	n	:	`Silvia Liliana Planells`,	r	:	`SurPBA 1112`,	a	:	`2011`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Silvia Lorena López San Román`,	r	:	`ABCBA 1504`,	a	:	`2015`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Silvia Maddalena`,	r	:	`RT 12200`,	a	:	``,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
