@@ -1527,7 +1527,7 @@ const ps=	[	{	n	:	`Abad Arévalo Candy`,	r	:	`PUEM 2013`,	a	:	`2020`,	e	:	``,	p	
 		{	n	:	`David Torres`,	r	:	`CLA 0711`,	a	:	`2007`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Davide Boato`,	r	:	`RT 0164`,	a	:	``,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Davide Venerando Russo`,	r	:	`SIA 0608`,	a	:	``,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
-		{	n	:	`Dayana Elisa Suarez Canizales`,	r	:	`BARQ 2261`,	a	:	`2022`,	e	:	``,	p	:	``,	f	:	`2025-04-15`	},
+		{	n	:	`Dayana Elisa Suarez Canizales`,	r	:	`BARQ 2261`,	a	:	`2022`,	e	:	``,	p	:	``,	f	:	`2026-04-09`	},
 		{	n	:	`Dayra Yvette Gutiérrez T.`,	r	:	`SFEBOG 1905`,	a	:	`2019`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Daysi Edith Osorio Alvarado`,	r	:	`ESAL 1403`,	a	:	`2014`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Débora Cabral Leite`,	r	:	`FT 16107`,	a	:	`2016`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
