@@ -4336,7 +4336,7 @@ const ps=	[	{	n	:	`Abad Arévalo Candy`,	r	:	`PUEM 2013`,	a	:	`2020`,	e	:	``,	p	
 		{	n	:	`Maria Victoria Toledo Castañeda`,	r	:	`TEN 1407`,	a	:	``,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`María Victoria Trujillo Moncada`,	r	:	`BOG 1313`,	a	:	`2013`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Maria Virginia  Damiani`,	r	:	`SP 1395`,	a	:	`2013`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
-		{	n	:	`Maria Viviana Pinto `,	r	:	`ISMAR 1818`,	a	:	`2018`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
+		{	n	:	`Maria Viviana Pinto `,	r	:	`ISMAR 1818`,	a	:	`2018`,	e	:	``,	p	:	``,	f	:	`2026-04-01`	},
 		{	n	:	`Maria Waleska Gatica Norambuena `,	r	:	`CONSUR 2201`,	a	:	`2022`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Maria Witurouwen`,	r	:	`FT 9739`,	a	:	`1997`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`María Ximena Echegaray`,	r	:	`PBA 19104`,	a	:	`2019`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
