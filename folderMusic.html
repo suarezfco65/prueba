@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leer Carpeta</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        #reproductor {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            width: calc(100% - 20px);
+            background-color: #f2f2f2;
+            padding: 10px;
+            border: 1px solid #ddd;
+            display: none; /* Oculto por defecto */
+        }
+    </style>
+</head>
+<body>
+    <button id="seleccionarCarpeta">Seleccionar Carpeta</button>
+    <table id="tablaArchivos">
+        <thead>
+            <tr>
+                <th>Carpeta</th>
+                <th>Archivo</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <div id="reproductor">
+        <audio id="audio" controls></audio>
+        <p id="infoReproductor"></p>
+    </div>
+
+    <script>
+        let reproductorVisible = false; // Estado del reproductor
+        let audio = document.getElementById('audio');
+        let infoReproductor = document.getElementById('infoReproductor');
+
+        document.getElementById('seleccionarCarpeta').addEventListener('click', async () => {
+            try {
+                const carpeta = await window.showDirectoryPicker();
+                const archivos = await leerCarpeta(carpeta, carpeta.name);
+                mostrarArchivos(archivos);
+            } catch (error) {
+                console.error('Error al seleccionar la carpeta:', error);
+            }
+        });
+
+        async function leerCarpeta(carpeta, rutaBase) {
+            const archivos = [];
+            for await (const entrada of carpeta.values()) {
+                if (entrada.kind === 'file') {
+                    archivos.push({ carpeta: rutaBase, archivo: entrada.name, file: entrada });
+                } else if (entrada.kind === 'directory') {
+                    const subArchivos = await leerCarpeta(entrada, `${rutaBase}/${entrada.name}`);
+                    archivos.push(...subArchivos);
+                }
+            }
+            return archivos;
+        }
+
+        function mostrarArchivos(archivos) {
+            // Filtrar solo archivos de música
+            const archivosMusica = archivos.filter(({ archivo }) => 
+                archivo.endsWith('.mp3') || archivo.endsWith('.wav') || archivo.endsWith('.ogg')
+            );
+
+            // Ordenar archivos por carpeta y archivo
+            archivosMusica.sort((a, b) => {
+                if (a.carpeta < b.carpeta) return -1;
+                if (a.carpeta > b.carpeta) return 1;
+                return a.archivo.localeCompare(b.archivo);
+            });
+
+            const tbody = document.getElementById('tablaArchivos').querySelector('tbody');
+            tbody.innerHTML = ''; // Limpiar la tabla
+            archivosMusica.forEach(({ carpeta, archivo, file }) => {
+                const tr = document.createElement('tr');
+                const tdCarpeta = document.createElement('td');
+                const tdArchivo = document.createElement('td');
+                const tdAccion = document.createElement('td');
+                const btnReproducir = document.createElement('button');
+
+                tdCarpeta.textContent = carpeta;
+                tdArchivo.textContent = archivo;
+
+                // Crear botón de reproducir
+                btnReproducir.textContent = 'Reproducir';
+                btnReproducir.onclick = async () => {
+                    const audioUrl = URL.createObjectURL(await file.getFile());
+                    audio.src = audioUrl;
+                    audio.play();
+                    infoReproductor.textContent = `Reproduciendo: ${archivo} de ${carpeta}`;
+                    document.getElementById('reproductor').style.display = 'block'; // Mostrar reproductor
+                };
+
+                tdAccion.appendChild(btnReproducir);
+                tr.appendChild(tdCarpeta);
+                tr.appendChild(tdArchivo);
+                tr.appendChild(tdAccion);
+                tbody.appendChild(tr);
+            });
+        }
+    </script>
+</body>
+</html>
