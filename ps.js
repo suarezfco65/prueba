@@ -1143,7 +1143,7 @@ const ps=	[	{	n	:	`Abad Arévalo Candy`,	r	:	`PUEM 2013`,	a	:	`2020`,	e	:	``,	p	
 		{	n	:	`Chantal Lachèse`,	r	:	`BOU 1219`,	a	:	``,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Chantal Mélina Praline`,	r	:	`ME 1021`,	a	:	``,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Charita (Angela) Miller-Smith`,	r	:	`DOR 1511`,	a	:	``,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
-		{	n	:	`Charles Lawrence Ramessar Persaud`,	r	:	`ISMAR 1512`,	a	:	`2015`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
+		{	n	:	`Charles Lawrence Ramessar Persaud`,	r	:	`ISMAR 1512`,	a	:	`2015`,	e	:	``,	p	:	``,	f	:	`2026-04-01`	},
 		{	n	:	`Charly Salvador Arévalo Vargas`,	r	:	`VE 1650`,	a	:	`2016`,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Chiara Alpigiani`,	r	:	`BO 1099`,	a	:	``,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
 		{	n	:	`Chiara Crapio`,	r	:	`SIA 1220`,	a	:	``,	e	:	``,	p	:	``,	f	:	`2025-04-01`	},
