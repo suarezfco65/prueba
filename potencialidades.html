@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potencialidades Musicales: Identificación y Análisis</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Warm/Cool Neutral Mix */
+            color: #334155;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 50vh;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .slider-thumb::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #4f46e5;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .slider-thumb::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #4f46e5;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+    </style>
+
+    <!-- Placeholder Comments Required -->
+    <!-- Chosen Palette: "Organic Harmony" - A base of Slate/Zinc for neutrality, with specific functional colors for the 5 lines: Red (Vitality), Orange (Sexuality), Green (Affectivity), Blue (Creativity), Purple (Transcendence). -->
+    
+    <!-- Application Structure Plan:
+        1. **Header & Context:** Introduces the concept of the 5 Lines of Vivencia (Potentials) in music.
+        2. **Educational Grid (The 5 Lines):** Interactive cards defining each potentiality and the key musical indicators associated with it. This builds the knowledge base.
+        3. **Interactive Analysis Lab (The Core):** A split-screen dashboard. 
+           - Left: A "Listening Control Panel" where the user adjusts sliders representing musical characteristics (Rhythm, Melody, Harmony, Tempo).
+           - Right: A real-time Radar Chart visualization that translates those physical characteristics into the 5 Potentials. This allows users to "see" how musical structure creates emotional potential.
+        4. **Preset Case Studies:** Buttons to load archetypal musical examples (e.g., "African Percussion", "Romantic Adagio") to demonstrate the theory in practice.
+        5. **Synthesis/Conclusion:** A summary of how to apply this listening method.
+        Structure chosen to move from Theory -> Experimentation -> Consolidation.
+    -->
+
+    <!-- Visualization & Content Choices:
+        - **Radar Chart (Chart.js):** Chosen to represent the "Profile" of a song. Since music rarely activates just one line, a radar chart perfectly shows the balance and dominance of the 5 interconnected potentials.
+        - **Sliders (Input):** Used to simulate the act of "identifying" musical traits. The user translates what they "hear" (simulated) into data, which the app interprets.
+        - **Color Coding:** Strict adherence to color psychology often used in Biodanza/Music Therapy for the 5 lines to aid memory retention.
+        - **Interactive Cards:** To break down dense theoretical definitions into digestible chunks.
+    -->
+
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- 1. HEADER & INTRO -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-2xl">🎵</span>
+                <h1 class="text-xl md:text-2xl font-bold text-slate-800">Analizador de Potencialidades Musicales</h1>
+            </div>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-600">
+                <button onclick="scrollToSection('theory')" class="hover:text-indigo-600 transition">Teoría</button>
+                <button onclick="scrollToSection('lab')" class="hover:text-indigo-600 transition">Laboratorio de Escucha</button>
+                <button onclick="scrollToSection('presets')" class="hover:text-indigo-600 transition">Ejemplos</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8 space-y-12">
+
+        <!-- INTRODUCCIÓN -->
+        <section class="text-center max-w-3xl mx-auto space-y-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900">¿Qué activa la música en nosotros?</h2>
+            <p class="text-lg text-slate-600 leading-relaxed">
+                La música no es solo sonido; es un lenguaje que estimula respuestas psicofisiológicas específicas. 
+                Utiliza esta herramienta interactiva para aprender a identificar las <strong>5 Líneas de Vivencia</strong>: 
+                Vitalidad, Sexualidad, Afectividad, Creatividad y Trascendencia.
+            </p>
+            <div class="p-4 bg-blue-50 border-l-4 border-blue-500 text-left rounded-r-md text-sm md:text-base">
+                <strong>Instrucciones:</strong> Explora las definiciones abajo y luego usa el "Laboratorio de Escucha" para simular cómo diferentes estructuras musicales activan distintas potencialidades humanas.
+            </div>
+        </section>
+
+        <!-- 2. TEORÍA: LAS 5 LÍNEAS (Educational Grid) -->
+        <section id="theory" class="space-y-6">
+            <div class="flex flex-col md:flex-row justify-between items-end border-b border-slate-200 pb-2">
+                <h3 class="text-2xl font-bold text-slate-800">Las 5 Potencialidades Humanas</h3>
+                <span class="text-sm text-slate-500">Pasa el mouse o toca para ver detalles musicales</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                <!-- Vitalidad -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-red-500 card-hover transition duration-300 group">
+                    <div class="flex items-center justify-between mb-3">
+                        <h4 class="font-bold text-lg text-slate-800">Vitalidad</h4>
+                        <span class="text-2xl group-hover:scale-110 transition">🔥</span>
+                    </div>
+                    <p class="text-sm text-slate-600 mb-4">Ímpetu vital, energía para la acción, sistema simpático, lucha o huida.</p>
+                    <div class="bg-red-50 p-3 rounded text-xs text-red-800 font-medium">
+                        <p class="mb-1">🎵 <strong>En la música:</strong></p>
+                        <ul class="list-disc pl-4 space-y-1">
+                            <li>Ritmo marcado y fuerte</li>
+                            <li>Percusión predominante</li>
+                            <li>Tempo rápido (Allegro)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Sexualidad -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-orange-500 card-hover transition duration-300 group">
+                    <div class="flex items-center justify-between mb-3">
+                        <h4 class="font-bold text-lg text-slate-800">Sexualidad</h4>
+                        <span class="text-2xl group-hover:scale-110 transition">🐍</span>
+                    </div>
+                    <p class="text-sm text-slate-600 mb-4">Placer, sensualidad, conexión con el deseo, relajación parasimpática.</p>
+                    <div class="bg-orange-50 p-3 rounded text-xs text-orange-800 font-medium">
+                        <p class="mb-1">🎵 <strong>En la música:</strong></p>
+                        <ul class="list-disc pl-4 space-y-1">
+                            <li>Movimientos ondulantes</li>
+                            <li>Melodías curvas</li>
+                            <li>Ritmos sincopados suaves</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Creatividad -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-blue-500 card-hover transition duration-300 group">
+                    <div class="flex items-center justify-between mb-3">
+                        <h4 class="font-bold text-lg text-slate-800">Creatividad</h4>
+                        <span class="text-2xl group-hover:scale-110 transition">🎨</span>
+                    </div>
+                    <p class="text-sm text-slate-600 mb-4">Innovación, exploración, expresión expresiva, renovación.</p>
+                    <div class="bg-blue-50 p-3 rounded text-xs text-blue-800 font-medium">
+                        <p class="mb-1">🎵 <strong>En la música:</strong></p>
+                        <ul class="list-disc pl-4 space-y-1">
+                            <li>Variaciones inesperadas</li>
+                            <li>Disonancias leves (Jazz)</li>
+                            <li>Instrumentación inusual</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Afectividad -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-green-500 card-hover transition duration-300 group">
+                    <div class="flex items-center justify-between mb-3">
+                        <h4 class="font-bold text-lg text-slate-800">Afectividad</h4>
+                        <span class="text-2xl group-hover:scale-110 transition">❤️</span>
+                    </div>
+                    <p class="text-sm text-slate-600 mb-4">Amor, ternura, empatía, sentimiento de pertenencia, nutrición.</p>
+                    <div class="bg-green-50 p-3 rounded text-xs text-green-800 font-medium">
+                        <p class="mb-1">🎵 <strong>En la música:</strong></p>
+                        <ul class="list-disc pl-4 space-y-1">
+                            <li>Melodías dulces y emotivas</li>
+                            <li>Armonía consonante</li>
+                            <li>Violines, piano suave</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Trascendencia -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-purple-500 card-hover transition duration-300 group">
+                    <div class="flex items-center justify-between mb-3">
+                        <h4 class="font-bold text-lg text-slate-800">Trascendencia</h4>
+                        <span class="text-2xl group-hover:scale-110 transition">🌌</span>
+                    </div>
+                    <p class="text-sm text-slate-600 mb-4">Expansión de conciencia, armonía con el todo, meditación.</p>
+                    <div class="bg-purple-50 p-3 rounded text-xs text-purple-800 font-medium">
+                        <p class="mb-1">🎵 <strong>En la música:</strong></p>
+                        <ul class="list-disc pl-4 space-y-1">
+                            <li>Atmósferas espaciales</li>
+                            <li>Repetición hipnótica</li>
+                            <li>Ausencia de pulso marcado</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. LABORATORIO DE ESCUCHA (The Analyzer) -->
+        <section id="lab" class="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200">
+            <div class="bg-slate-900 text-white p-6">
+                <h3 class="text-2xl font-bold flex items-center gap-2">
+                    🎛️ Laboratorio de Análisis Musical
+                </h3>
+                <p class="text-slate-300 text-sm mt-1">
+                    Ajusta los parámetros musicales (Izquierda) para ver qué potencialidad se activa en el gráfico (Derecha).
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+                <!-- CONTROLS -->
+                <div class="lg:col-span-4 p-6 bg-slate-50 border-r border-slate-200 space-y-8">
+                    
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="font-bold text-sm text-slate-700">1. Ritmo y Percusión</label>
+                            <span id="val-rhythm" class="text-xs font-mono bg-slate-200 px-2 py-0.5 rounded">50%</span>
+                        </div>
+                        <input type="range" min="0" max="100" value="50" class="w-full h-2 bg-slate-300 rounded-lg appearance-none cursor-pointer slider-thumb" id="slider-rhythm">
+                        <div class="flex justify-between text-[10px] text-slate-500 mt-1">
+                            <span>Ausente/Fluido</span>
+                            <span>Marcado/Tribal</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="font-bold text-sm text-slate-700">2. Melodía y Emoción</label>
+                            <span id="val-melody" class="text-xs font-mono bg-slate-200 px-2 py-0.5 rounded">50%</span>
+                        </div>
+                        <input type="range" min="0" max="100" value="50" class="w-full h-2 bg-slate-300 rounded-lg appearance-none cursor-pointer slider-thumb" id="slider-melody">
+                        <div class="flex justify-between text-[10px] text-slate-500 mt-1">
+                            <span>Plana/Monótona</span>
+                            <span>Expresiva/Lírica</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="font-bold text-sm text-slate-700">3. Armonía y Densidad</label>
+                            <span id="val-harmony" class="text-xs font-mono bg-slate-200 px-2 py-0.5 rounded">50%</span>
+                        </div>
+                        <input type="range" min="0" max="100" value="50" class="w-full h-2 bg-slate-300 rounded-lg appearance-none cursor-pointer slider-thumb" id="slider-harmony">
+                        <div class="flex justify-between text-[10px] text-slate-500 mt-1">
+                            <span>Simple/Básica</span>
+                            <span>Compleja/Cósmica</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <label class="font-bold text-sm text-slate-700">4. Tempo / Velocidad</label>
+                            <span id="val-tempo" class="text-xs font-mono bg-slate-200 px-2 py-0.5 rounded">50%</span>
+                        </div>
+                        <input type="range" min="0" max="100" value="50" class="w-full h-2 bg-slate-300 rounded-lg appearance-none cursor-pointer slider-thumb" id="slider-tempo">
+                        <div class="flex justify-between text-[10px] text-slate-500 mt-1">
+                            <span>Lento (Adagio)</span>
+                            <span>Rápido (Allegro)</span>
+                        </div>
+                    </div>
+
+                    <!-- Botón de Reset -->
+                    <button id="reset-btn" class="w-full py-2 px-4 bg-white border border-slate-300 text-slate-600 rounded hover:bg-slate-100 text-sm transition">
+                        Reiniciar Parámetros
+                    </button>
+
+                </div>
+
+                <!-- VISUALIZATION -->
+                <div class="lg:col-span-8 p-6 flex flex-col justify-center items-center relative bg-white">
+                    <h4 class="absolute top-4 left-6 font-bold text-slate-400 text-sm uppercase tracking-wider">Perfil de Potencialidad</h4>
+                    
+                    <!-- Chart Container as per requirements -->
+                    <div class="chart-container">
+                        <canvas id="potentialRadar"></canvas>
+                    </div>
+
+                    <!-- Dynamic Analysis Text -->
+                    <div id="analysis-text" class="mt-6 p-4 bg-slate-50 rounded-lg border border-slate-100 w-full max-w-xl text-center">
+                        <h5 class="font-bold text-slate-800 mb-2">Análisis Actual</h5>
+                        <p class="text-sm text-slate-600">Ajusta los controles para ver el resultado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. CASOS DE ESTUDIO (Presets) -->
+        <section id="presets" class="space-y-6">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-slate-800">Casos Prácticos: Géneros Musicales</h3>
+                <p class="text-slate-600">Selecciona un estilo para ver su "Huella Digital" en las líneas de vivencia.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+                <button class="preset-btn p-3 bg-white border border-slate-200 rounded-lg shadow-sm hover:border-red-400 hover:bg-red-50 transition text-sm font-medium" 
+                        data-r="90" data-m="40" data-h="30" data-t="85" data-name="Percusión Africana">
+                    🥁 Percusión Tribal
+                    <span class="block text-xs text-slate-400 font-normal mt-1">Alta Vitalidad</span>
+                </button>
+
+                <button class="preset-btn p-3 bg-white border border-slate-200 rounded-lg shadow-sm hover:border-orange-400 hover:bg-orange-50 transition text-sm font-medium" 
+                        data-r="60" data-m="80" data-h="50" data-t="40" data-name="Bossa Nova / Bolero">
+                    🎷 Jazz/Bossa
+                    <span class="block text-xs text-slate-400 font-normal mt-1">Sexualidad/Fluidez</span>
+                </button>
+
+                <button class="preset-btn p-3 bg-white border border-slate-200 rounded-lg shadow-sm hover:border-green-400 hover:bg-green-50 transition text-sm font-medium" 
+                        data-r="20" data-m="95" data-h="60" data-t="30" data-name="Nocturno de Chopin">
+                    🎹 Romántico
+                    <span class="block text-xs text-slate-400 font-normal mt-1">Alta Afectividad</span>
+                </button>
+
+                <button class="preset-btn p-3 bg-white border border-slate-200 rounded-lg shadow-sm hover:border-blue-400 hover:bg-blue-50 transition text-sm font-medium" 
+                        data-r="70" data-m="60" data-h="90" data-t="70" data-name="Jazz Fusión">
+                    🎺 Jazz Fusión
+                    <span class="block text-xs text-slate-400 font-normal mt-1">Alta Creatividad</span>
+                </button>
+
+                <button class="preset-btn p-3 bg-white border border-slate-200 rounded-lg shadow-sm hover:border-purple-400 hover:bg-purple-50 transition text-sm font-medium" 
+                        data-r="10" data-m="30" data-h="95" data-t="10" data-name="Música Ambiental">
+                    🌌 Ambient/Cósmica
+                    <span class="block text-xs text-slate-400 font-normal mt-1">Trascendencia</span>
+                </button>
+
+                <button class="preset-btn p-3 bg-white border border-slate-200 rounded-lg shadow-sm hover:border-slate-400 hover:bg-slate-50 transition text-sm font-medium" 
+                        data-r="80" data-m="20" data-h="20" data-t="90" data-name="Pop / Rock Activo">
+                    🎸 Rock/Pop
+                    <span class="block text-xs text-slate-400 font-normal mt-1">Vitalidad Activa</span>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-sm">Herramienta educativa basada en principios de Musicoterapia y el Sistema Biodanza.</p>
+            <p class="text-xs mt-2 opacity-50">Diseñado para facilitar la identificación de potenciales humanos en la escucha musical.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- DATA & STATE ---
+        const state = {
+            rhythm: 50,
+            melody: 50,
+            harmony: 50,
+            tempo: 50
+        };
+
+        let chartInstance = null;
+
+        // --- DOM ELEMENTS ---
+        const sliders = {
+            rhythm: document.getElementById('slider-rhythm'),
+            melody: document.getElementById('slider-melody'),
+            harmony: document.getElementById('slider-harmony'),
+            tempo: document.getElementById('slider-tempo')
+        };
+
+        const displays = {
+            rhythm: document.getElementById('val-rhythm'),
+            melody: document.getElementById('val-melody'),
+            harmony: document.getElementById('val-harmony'),
+            tempo: document.getElementById('val-tempo')
+        };
+
+        const analysisText = document.getElementById('analysis-text');
+        const resetBtn = document.getElementById('reset-btn');
+        const presetBtns = document.querySelectorAll('.preset-btn');
+
+        // --- CORE LOGIC: ALGORITHM TO MAP INPUTS TO POTENTIALS ---
+        function calculatePotentials(r, m, h, t) {
+            // Normalize inputs to 0-1
+            const R = r / 100; // Rhythm
+            const M = m / 100; // Melody
+            const H = h / 100; // Harmony
+            const T = t / 100; // Tempo
+
+            // ALGORITHM: Weighted heuristics based on music theory/Biodanza principles
+            
+            // 1. VITALIDAD: Driven by Rhythm, Tempo, and lack of too much complex harmony (which slows impulse)
+            let vitalidad = (R * 0.5) + (T * 0.4) + (0.1); 
+
+            // 2. SEXUALIDAD: Sensuality needs Curve (Melody), specific Tempo (not too fast, not too slow), and Rhythm
+            // Ideally Tempo around 0.4-0.6 is peak sensuality.
+            let tempoFactorSex = 1 - Math.abs(T - 0.5) * 2; // Peak at 0.5
+            let sexualidad = (M * 0.4) + (tempoFactorSex * 0.3) + (R * 0.2) + (H * 0.1);
+
+            // 3. AFECTIVIDAD: Melody is queen, Harmony supports emotion. Tempo usually moderate to slow.
+            let afectividad = (M * 0.6) + (H * 0.3) + ((1 - T) * 0.1);
+
+            // 4. CREATIVIDAD: Complex Harmony, moderate Rhythm (syncopation), variation.
+            let creatividad = (H * 0.5) + (R * 0.2) + (M * 0.3);
+
+            // 5. TRASCENDENCIA: Harmony and "Space" (Low Rhythm, Low Tempo).
+            let trascendencia = (H * 0.6) + ((1 - R) * 0.2) + ((1 - T) * 0.2);
+
+            // Scale back to 0-100 for chart
+            return {
+                vitalidad: Math.min(100, vitalidad * 100),
+                sexualidad: Math.min(100, sexualidad * 100),
+                afectividad: Math.min(100, afectividad * 100),
+                creatividad: Math.min(100, creatividad * 100),
+                trascendencia: Math.min(100, trascendencia * 100)
+            };
+        }
+
+        // --- TEXT GENERATION LOGIC ---
+        function generateAnalysis(potentials) {
+            // Find dominant potential
+            const entries = Object.entries(potentials);
+            entries.sort((a, b) => b[1] - a[1]);
+            const dominant = entries[0];
+            const secondary = entries[1];
+
+            const descriptions = {
+                vitalidad: "Esta configuración estimula fuertemente el <strong>Ímpetu Vital</strong>. Es música ideal para despertar, mover el cuerpo, jugar y actuar. Activa el sistema simpático.",
+                sexualidad: "Los parámetros sugieren una activación de la <strong>Sexualidad y el Placer</strong>. La combinación de ritmo y melodía invita a la fluidez, el disfrute sensorial y la conexión física.",
+                afectividad: "Predomina la <strong>Afectividad</strong>. La melodía y armonía sugieren emociones tiernas, ideales para conectar con el corazón, la empatía y el abrazo.",
+                creatividad: "Se detecta un alto potencial de <strong>Creatividad</strong>. La complejidad armónica y estructura estimulan la mente, la innovación y la capacidad de cambio.",
+                trascendencia: "Esta atmósfera induce a la <strong>Trascendencia</strong>. La calma rítmica y la profundidad armónica facilitan estados meditativos, expansión de conciencia y paz profunda."
+            };
+
+            const titles = {
+                vitalidad: "Energía y Acción",
+                sexualidad: "Sensualidad y Placer",
+                afectividad: "Emoción y Vínculo",
+                creatividad: "Expresión e Innovación",
+                trascendencia: "Expansión y Armonía"
+            };
+
+            return `
+                <h5 class="font-bold text-slate-800 mb-2 text-lg">Dominante: ${titles[dominant[0]]}</h5>
+                <p class="text-sm text-slate-600 mb-2">${descriptions[dominant[0]]}</p>
+                <p class="text-xs text-slate-500 border-t pt-2 mt-2">Secundario: ${titles[secondary[0]]} (${Math.round(secondary[1])}%)</p>
+            `;
+        }
+
+        // --- CHART INITIALIZATION ---
+        function initChart() {
+            const ctx = document.getElementById('potentialRadar').getContext('2d');
+            
+            chartInstance = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Vitalidad', 'Sexualidad', 'Afectividad', 'Creatividad', 'Trascendencia'],
+                    datasets: [{
+                        label: 'Potencial Activado',
+                        data: [50, 50, 50, 50, 50],
+                        backgroundColor: 'rgba(99, 102, 241, 0.2)', // Indigo-500 with opacity
+                        borderColor: 'rgba(99, 102, 241, 1)',
+                        pointBackgroundColor: [
+                            '#ef4444', // Red for Vitality
+                            '#f97316', // Orange for Sexuality
+                            '#22c55e', // Green for Affectivity
+                            '#3b82f6', // Blue for Creativity
+                            '#a855f7'  // Purple for Transcendence
+                        ],
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(99, 102, 241, 1)',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: '#e2e8f0' },
+                            grid: { color: '#e2e8f0' },
+                            pointLabels: {
+                                font: { size: 12, family: "'Inter', sans-serif", weight: 'bold' },
+                                color: '#475569'
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 100,
+                            ticks: { display: false, stepSize: 20 }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + ': ' + Math.round(context.raw) + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // --- UPDATE LOGIC ---
+        function updateApp() {
+            // Get values
+            const r = parseInt(sliders.rhythm.value);
+            const m = parseInt(sliders.melody.value);
+            const h = parseInt(sliders.harmony.value);
+            const t = parseInt(sliders.tempo.value);
+
+            // Update displays
+            displays.rhythm.innerText = r + '%';
+            displays.melody.innerText = m + '%';
+            displays.harmony.innerText = h + '%';
+            displays.tempo.innerText = t + '%';
+
+            // Calculate
+            const results = calculatePotentials(r, m, h, t);
+
+            // Update Chart
+            chartInstance.data.datasets[0].data = [
+                results.vitalidad,
+                results.sexualidad,
+                results.afectividad,
+                results.creatividad,
+                results.trascendencia
+            ];
+            chartInstance.update();
+
+            // Update Text
+            analysisText.innerHTML = generateAnalysis(results);
+        }
+
+        // --- EVENT LISTENERS ---
+        Object.values(sliders).forEach(slider => {
+            slider.addEventListener('input', updateApp);
+        });
+
+        resetBtn.addEventListener('click', () => {
+            Object.values(sliders).forEach(s => s.value = 50);
+            updateApp();
+        });
+
+        presetBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                sliders.rhythm.value = btn.getAttribute('data-r');
+                sliders.melody.value = btn.getAttribute('data-m');
+                sliders.harmony.value = btn.getAttribute('data-h');
+                sliders.tempo.value = btn.getAttribute('data-t');
+                
+                // Visual feedback for button press
+                presetBtns.forEach(b => b.classList.remove('ring-2', 'ring-indigo-500'));
+                btn.classList.add('ring-2', 'ring-indigo-500');
+
+                updateApp();
+            });
+        });
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // --- INITIALIZATION ---
+        window.addEventListener('DOMContentLoaded', () => {
+            initChart();
+            updateApp(); // Initial run
+        });
+
+    </script>
+</body>
+</html>
